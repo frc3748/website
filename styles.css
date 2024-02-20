@@ -11,6 +11,10 @@
   height: 120px;
 }
 
+.nav li a {
+  color: white;
+}
+
 h1 {
   font-size: 56px;
   font-weight: 700;
