@@ -99,6 +99,15 @@ h4 {
 
 .separator {
   color: black;
-  background-color: blask;
+  background-color: black;
   height: 5px;
+}
+
+.school-info {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
