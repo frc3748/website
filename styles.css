@@ -1,0 +1,48 @@
+/*
+ * Custom CSS
+ */
+
+:root {
+  --bs-body-bg: var(--bs-gray-100);
+}
+
+#team-logo {
+  width: 120px;
+  height: 120px;
+}
+
+.navbar-custom .navbar-text {
+  color: gold;
+}
+
+h2 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sponsor-headers {
+  color: gold;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: left;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
