@@ -96,3 +96,9 @@ h4 {
   font-weight: 700;
   text-align: left;
 }
+
+.separator {
+  color: black;
+  background-color: blask;
+  height: 5px;
+}
