@@ -1,18 +1,18 @@
-/*
- * Custom CSS
- */
-
 :root {
   --bs-body-bg: var(--bs-gray-100);
+}
+
+.bg-mth {
+  background-color: #F9C349
+}
+
+.fg-mth {
+  color: #F9C349
 }
 
 #team-logo {
   width: 120px;
   height: 120px;
-}
-
-.nav li a {
-  color: white;
 }
 
 h1 {
@@ -48,7 +48,7 @@ h4 {
 }
 
 .gold-sponsor-header {
-  color: gold;
+  color: #F9C349;
   font-size: 42px;
   font-weight: 700;
   text-align: left;
@@ -74,8 +74,8 @@ h4 {
 }
 
 .gold-sponsor-separator {
-  color: gold;
-  background-color: gold;
+  color: #F9C349;
+  background-color: #F9C349;
   height: 5px;
 }
 
@@ -110,4 +110,21 @@ h4 {
   margin-bottom: 20px;
   text-align: left;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.copyright {
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+.season-carousel-image {
+  width: 300px
+}
+
+.past-seasons-carousel-image {
+  width: 800px
 }
