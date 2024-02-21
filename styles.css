@@ -128,3 +128,14 @@ h4 {
 .past-seasons-carousel-image {
   width: 800px
 }
+
+.row {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
