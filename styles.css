@@ -51,8 +51,8 @@ h4 {
   color: #F9C349;
   font-size: 42px;
   font-weight: 700;
-  text-align: left;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-bottom: 5px;
 }
 
@@ -60,17 +60,16 @@ h4 {
   color: silver;
   font-size: 42px;
   font-weight: 700;
-  text-align: left;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .bronze-sponsor-header {
   color: #CD7F32;
-  /* bronze */
   font-size: 42px;
   font-weight: 700;
-  text-align: left;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .gold-sponsor-separator {
@@ -129,13 +128,6 @@ h4 {
   width: 800px
 }
 
-.row {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 50%;
+.sponsor-text {
+  text-align: justify;
 }
