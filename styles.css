@@ -2,12 +2,16 @@
   --bs-body-bg: var(--bs-gray-100);
 }
 
-.bg-mth {
-  background-color: #F9C349
+.mth-ßft {
+  color: #eaad1f
 }
 
-.fg-mth {
-  color: #F9C349
+.mth-bg {
+  background-color: #eaad1f
+}
+
+.mth-fg {
+  color: #eaad1f
 }
 
 #team-logo {
@@ -16,7 +20,7 @@
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 3vw;
   font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
@@ -24,7 +28,7 @@ h1 {
 }
 
 h2 {
-  font-size: 56px;
+  font-size: 2vw;
   font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
@@ -32,15 +36,14 @@ h2 {
 }
 
 h3 {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 2vw;
   margin-bottom: 20px;
   text-align: center;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 h4 {
-  font-size: 32px;
+  font-size: 1vw;
   font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
@@ -48,7 +51,7 @@ h4 {
 }
 
 .gold-sponsor-header {
-  color: #F9C349;
+  color: #eaad1f;
   font-size: 42px;
   font-weight: 700;
   text-align: center;
@@ -73,7 +76,7 @@ h4 {
 }
 
 .gold-sponsor-separator {
-  color: #F9C349;
+  color: #eaad1f;
   background-color: #F9C349;
   height: 5px;
 }
@@ -91,7 +94,7 @@ h4 {
 }
 
 .about-text {
-  font-size: 42px;
+  font-size: 2vw;
   font-weight: 700;
   text-align: left;
 }
@@ -130,4 +133,12 @@ h4 {
 
 .sponsor-text {
   text-align: justify;
+}
+
+
+.h3-text {
+  font-size: 4vw;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
