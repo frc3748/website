@@ -1,5 +1,4 @@
 function submitToLambda() {
-    document.getElementById("demo").innerHTML = "Hello World";
     var URL = "https://aewh7rhcc4fwntjj2htjv2ai740ncujn.lambda-url.us-east-2.on.aws/";
     //Regex stuff for later
     // var Namere = /[A-Za-z]{1}[A-Za-z]/;
