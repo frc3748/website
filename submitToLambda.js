@@ -1,22 +1,29 @@
 function submitToLambda() {
     var URL = "https://aewh7rhcc4fwntjj2htjv2ai740ncujn.lambda-url.us-east-2.on.aws/";
     //Regex stuff for later
-    // var Namere = /[A-Za-z]{1}[A-Za-z]/;
-    // if (!Namere.test($("#fullname").val())) {
-    //     alert("Name can not less than 2 char");
-    //     return;
-    // }
+    var Namere = /[A-Za-z]{1}[A-Za-z]/;
+    if (!Namere.test($("#fullname").val())) {
+        alert("Name can not less than 2 char");
+        return;
+    }
 
-    // if ($("#email").val() == "") {
-    //     alert("Please enter your email id");
-    //     return;
-    // }
+    if ($("#email").val() == "") {
+        alert("Please enter your email id");
+        return;
+    }
 
-    // var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-    // if (!reeamil.test($("#email").val())) {
-    //     alert("Please enter valid email address");
-    //     return;
-    // }
+
+    if ($("#message").val() == "") {
+        alert("Please enter a message");
+        return;
+    }
+
+
+    var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+    if (!reeamil.test($("#email").val())) {
+        alert("Please enter valid email address");
+        return;
+    }
 
     var name = $("#fullname").val();
     var email = $("#email").val();
@@ -43,12 +50,12 @@ function submitToLambda() {
 
 
     })
-        .always(function () {
-            // clear form and show a success message
-            alert("Thank you for contacting us. We will reach out as soon as possible!");
-            document.getElementById("contact-form").reset();
-            location.reload();
-        })
+    // .always(function () {
+    //     // clear form and show a success message
+    //     alert("Thank you for contacting us. We will reach out as soon as possible!");
+    //     document.getElementById("contact-form").reset();
+    //     location.reload();
+    // })
 }
 
 
