@@ -50,12 +50,12 @@ function submitToLambda() {
 
 
     })
-    // .always(function () {
-    //     // clear form and show a success message
-    //     alert("Thank you for contacting us. We will reach out as soon as possible!");
-    //     document.getElementById("contact-form").reset();
-    //     location.reload();
-    // })
+        .always(function () {
+            // clear form and show a success message
+            alert("Thank you for contacting us. We will reach out as soon as possible!");
+            document.getElementById("contact-form").reset();
+            location.reload();
+        })
 }
 
 
