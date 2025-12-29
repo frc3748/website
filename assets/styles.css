@@ -1,0 +1,712 @@
+/* ==========================================================================
+   TABLE OF CONTENTS
+   ==========================================================================
+   1. VARIABLES & RESET ....... Root variables and global resets
+   2. TYPOGRAPHY .............. Headings, fonts, and text utilities
+   3. LAYOUT .................. Navbar, Hero, Footer
+   4. COMPONENTS .............. Buttons, Forms, Tables, Modals, Popovers
+   5. CARDS ................... Member, Mentor, and Sponsor cards
+   6. SECTIONS ................ Team, Awards, Game Specifics
+   7. PAGES ................... Coming Soon Page styles
+   8. ANIMATIONS .............. Keyframes and Ticker behaviors
+   ========================================================================== */
+
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Colors */
+    --primary-red: #C62828;
+    --dark-grey: #212121;
+    --ragnarok-gold: #eaad1f;
+    --accent-color: #ffd700;
+
+    /* Fonts */
+    --font-main: 'Roboto', sans-serif;
+    --font-display: 'Viking-Normal', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #f8f9fa;
+    color: #212121;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    color: var(--ragnarok-gold);
+    font-weight: 700;
+}
+
+p,
+li,
+td,
+.team-text {
+    line-height: 1.6;
+}
+
+.viking-font {
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   3. LAYOUT (Nav, Hero, Footer)
+   ========================================= */
+/* --- Navigation --- */
+.navbar-brand {
+    font-family: var(--font-display);
+    color: var(--ragnarok-gold);
+    font-weight: 700;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--ragnarok-gold);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-family: var(--font-display);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--ragnarok-gold);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--ragnarok-gold) !important;
+    font-weight: 900;
+    text-shadow: 0px 0px 10px rgba(234, 173, 31, 0.3);
+}
+
+/* Dropdown Menus */
+.navbar .dropdown-menu .dropdown-item {
+    font-family: var(--font-display);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+    color: var(--ragnarok-gold);
+}
+
+.navbar .dropdown-menu .dropdown-item.active,
+.navbar .dropdown-menu .dropdown-item:active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--ragnarok-gold);
+    font-weight: bold;
+}
+
+/* --- Hero & Carousel --- */
+.main-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.main-hero h1 {
+    color: var(--ragnarok-gold);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+    letter-spacing: 5px;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+    padding: 20px;
+    border-left: 4px solid var(--primary-red);
+}
+
+.carousel-caption h5 {
+    color: var(--ragnarok-gold);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer h5 {
+    color: var(--ragnarok-gold);
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-red);
+}
+
+.footer-logo {
+    max-height: 80px;
+    width: auto;
+    margin: 0;
+}
+
+/* Social Icons */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--ragnarok-gold);
+    border-radius: 50%;
+    margin-left: 15px;
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+    text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.7);
+}
+
+/* =========================================
+   4. COMPONENTS (UI Elements)
+   ========================================= */
+/* --- Buttons --- */
+.btn-norse {
+    font-family: var(--font-display);
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    letter-spacing: 1px;
+}
+
+.btn-norse:hover {
+    background-color: #b71c1c;
+    color: white;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-youtube:hover {
+    background-color: #FF0000;
+    color: white;
+    border-color: #FF0000;
+}
+
+.btn-youtube:hover i {
+    color: white !important;
+}
+
+/* --- Forms --- */
+.custom-input {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.custom-input:focus {
+    background-color: #444;
+    color: #fff;
+    border-color: var(--ragnarok-gold);
+    box-shadow: 0 0 0 0.25rem rgba(234, 173, 31, 0.25);
+}
+
+.custom-input::placeholder {
+    color: #bbb;
+}
+
+/* --- Tables --- */
+.table-custom thead {
+    background-color: #212529;
+    color: white;
+    font-family: var(--font-display);
+}
+
+/* --- Utility Containers --- */
+.info-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #212529;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.video-wrapper {
+    border: 4px solid #212529;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- Modals & Popovers --- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.popup-content h3 {
+    color: #28a745;
+    margin-top: 0;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #5a6268;
+}
+
+.popover {
+    background-color: var(--dark-grey);
+    border: 1px solid var(--ragnarok-gold);
+    max-width: none;
+    width: min-content;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.popover-header {
+    background-color: #1a1a1a;
+    color: var(--ragnarok-gold);
+    font-family: var(--font-display);
+    border-bottom: 1px solid var(--ragnarok-gold);
+    font-size: 1.0rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.popover-body {
+    color: #f8f9fa;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+}
+
+/* Popover Arrows */
+.bs-popover-top>.popover-arrow::after {
+    border-top-color: var(--dark-grey);
+}
+
+.bs-popover-bottom>.popover-arrow::after {
+    border-bottom-color: var(--dark-grey);
+}
+
+.bs-popover-start>.popover-arrow::after {
+    border-left-color: var(--dark-grey);
+}
+
+.bs-popover-end>.popover-arrow::after {
+    border-right-color: var(--dark-grey);
+}
+
+/* =========================================
+   5. CARDS (Members, Mentors, Sponsors)
+   ========================================= */
+/* --- Member Cards --- */
+.member-card {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(234, 173, 31, 0.2);
+    border-color: #eaad1f;
+}
+
+.member-img-wrapper {
+    height: 250px;
+    overflow: hidden;
+    border-bottom: 3px solid #eaad1f;
+}
+
+.member-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    padding: 20px;
+    color: white;
+}
+
+.member-info h4 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.member-info .role {
+    color: var(--ragnarok-gold);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.member-info .grade {
+    color: #ccc;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* --- Mentor Cards --- */
+.mentor-card {
+    border-left: 5px solid #eaad1f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    max-height: 150px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.mentor-card:hover {
+    transform: translateY(-5px);
+    border-color: #eaad1f;
+    box-shadow: 0 4px 15px rgba(234, 173, 31, 0.3);
+}
+
+.mentor-card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.mentor-card .role {
+    color: #adb5bd;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* --- Sponsor Cards --- */
+.sponsor-card {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sponsor-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================
+   6. SECTIONS (Team, Awards, Games)
+   ========================================= */
+/* --- Team & Awards --- */
+.team-title,
+.team-subtitle {
+    color: var(--ragnarok-gold);
+    font-family: var(--font-main);
+    text-transform: uppercase;
+}
+
+.team-bio {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.award-year {
+    color: #0d6efd;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.award-item {
+    border-left: 3px solid #333;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* --- Game & Event Specifics --- */
+.reef-level,
+.score-level {
+    background-color: #212121;
+    border-left: 5px solid #444;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.reef-level:hover,
+.score-level:hover {
+    background-color: #2a2a2a;
+    border-left-color: var(--ragnarok-gold);
+    transform: translateX(5px);
+}
+
+.reef-level h4,
+.score-level h4 {
+    color: var(--ragnarok-gold);
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.reef-level span,
+.score-level span {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.game-piece-card {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+}
+
+.game-piece-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--primary-red);
+}
+
+.game-image {
+    border: 2px solid var(--ragnarok-gold);
+}
+
+/* =========================================
+   7. PAGES (Coming Soon)
+   ========================================= */
+.coming-soon-wrapper {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.coming-soon-card {
+    background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.coming-soon-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--ragnarok-gold);
+}
+
+.coming-soon-card h2 {
+    color: var(--ragnarok-gold);
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+}
+
+.icon-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider-gold {
+    border-top: 2px solid var(--ragnarok-gold);
+    opacity: 0.5;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reveal-date {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.date-highlight {
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* =========================================
+   8. ANIMATIONS
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hammerSwing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(-25deg);
+    }
+
+    30% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.hammer-anim {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: hammerSwing 2s ease-in-out infinite;
+    transform-origin: bottom right;
+}
+
+/* Ticker Animation */
+.ticker-wrapper {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid var(--ragnarok-gold);
+    overflow: hidden;
+    position: relative;
+    height: 42px;
+    width: 100%;
+}
+
+.ticker-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: tickerPause 12s ease-in-out infinite;
+}
+
+@keyframes tickerPause {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.ticker-wrapper:hover .ticker-content {
+    animation-play-state: paused;
+}

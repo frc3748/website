@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GL9Y0DFJPE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GL9Y0DFJPE');
+    </script>
+
+    <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog && window.posthog.__loaded) || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init Xr es pi Zr rs Kr Qr capture Ni calculateEventProperties os register register_once register_for_session unregister unregister_for_session ds getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty us ns createPersonProfile hs Vr vs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ss debug O ls getPageViewId captureTraceFeedback captureTraceMetric qr".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('phc_wJi8g0MuuEUg1bifQw6wfPsVhRCd9dKdzjUw3xl9uZJ', {
+            api_host: 'https://us.i.posthog.com',
+            defaults: '2025-11-30',
+            person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+        })
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRST Inspires | Team 3748 Ragnarok Robotics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/viking-normal" rel="stylesheet">
+
+    <style>
+        /* Specific page styling for the progression steps */
+        .progression-card {
+            background-color: #212121;
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .progression-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--ragnarok-gold);
+            box-shadow: 0 10px 20px rgba(234, 173, 31, 0.2);
+        }
+
+        .level-badge {
+            background-color: var(--primary-red);
+            color: white;
+            font-family: 'Viking-Normal', sans-serif;
+            padding: 5px 15px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .active-level {
+            border: 2px solid var(--ragnarok-gold);
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+            box-shadow: 0 0 15px rgba(234, 173, 31, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.png" alt="Ragnarok Robotics Logo" onerror="this.style.display='none'" style="height: 40px; margin-right: 10px;">
+                <span class="viking-font">Team 3748</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html">Our Legacy</a></li>
+                            <li><a class="dropdown-item" href="team-members.html">Meet the Team</a></li>
+                            <li><a class="dropdown-item active" href="first-inspires.html">FIRST Inspires</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Seasons
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="2026-game.html">2026 (RebuilT)</a></li>
+                            <li><a class="dropdown-item" href="2025-game.html">2025 (Reefscape)</a></li>
+                            <li><a class="dropdown-item" href="2024-game.html">2024 (Crescendo)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sponsorship
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sponsorDropdown">
+                            <li><a class="dropdown-item" href="sponsors.html">Sponsors</a></li>
+                            <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship Opportunitiess</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-VAR125" target="_blank" class="btn btn-norse">DONATE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="main-hero">
+        <div class="container">
+            <h1 class="display-3 mb-2">FIRST Inspires</h1>
+            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">More Than Robots</p>
+        </div>
+    </header>
+
+    <section class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <img src="assets/first-logo.png" alt="FIRST Logo" class="mb-4" style="max-height: 120px; width: auto; display: block; margin: 0 auto;">
+
+                <h2 class="team-title mb-4" style="color: #212121;">What is FIRST?</h2>
+                <p class="lead text-muted">
+                    FIRST (For Inspiration and Recognition of Science and Technology) is a global non-profit organization founded by Dean Kamen in 1989. Its mission is to prepare young people for the future through a suite of inclusive, team-based robotics programs for ages 4-18.
+                </p>
+                <p class="text-muted">
+                    Beyond building machines, FIRST emphasizes core values such as <strong>Gracious Professionalism</strong> and <strong>Coopertition</strong>, teaching students that they can compete fiercely while treating one another with respect and kindness.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            <div class="col-12 text-center mb-3">
+                <h2 class="team-title" style="color: var(--primary-red);">The Levels of FIRST</h2>
+                <hr style="width: 100px; margin: 10px auto; border-top: 3px solid var(--ragnarok-gold); opacity: 1;">
+            </div>
+
+            <div class="col-md-4">
+                <div class="progression-card text-center text-white">
+                    <div class="level-badge">Ages 4-16</div>
+                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST LEGO League</h3>
+                    <h5 class="text-white-50 mb-4">(FLL)</h5>
+                    <p>
+                        The entry point into the FIRST progression. FLL utilizes LEGO® bricks and technology to introduce students to STEM concepts through fun, hands-on learning.
+                    </p>
+                    <ul class="text-start text-white-50 small mt-3">
+                        <li><strong>Discover (PreK-1):</strong> playful intro to STEM.</li>
+                        <li><strong>Explore (Grades 2-4):</strong> focuses on engineering fundamentals.</li>
+                        <li><strong>Challenge (Grades 4-8):</strong> teams build autonomous robots to score points on a thematic playing field.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="progression-card text-center text-white">
+                    <div class="level-badge">Grades 7-12</div>
+                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Tech Challenge</h3>
+                    <h5 class="text-white-50 mb-4">(FTC)</h5>
+                    <p>
+                        Teams design, build, and program robots to compete in an alliance format against other teams.
+                    </p>
+                    <ul class="text-start text-white-50 small mt-3">
+                        <li><strong>The Robot:</strong> Roughly 18" x 18", built from reusable kits of parts and custom materials.</li>
+                        <li><strong>The Game:</strong> Played on a 12' x 12' field in a 2 vs 2 alliance format.</li>
+                        <li><strong>Focus:</strong> Developing technical skills, engineering innovation, and community outreach.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="progression-card active-level text-center text-white position-relative">
+                    <div class="position-absolute top-0 start-50 translate-middle badge bg-warning text-dark border border-dark rounded-pill" style="font-family:'Roboto'; font-weight:bold;">WE ARE HERE</div>
+                    <div class="level-badge mt-3">Grades 9-12</div>
+                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Robotics Competition</h3>
+                    <h5 class="text-white-50 mb-4">(FRC)</h5>
+                    <p>
+                        Considered the "ultimate Sport for the Mind," FRC combines the excitement of sport with the rigors of science and technology.
+                    </p>
+                    <ul class="text-start text-white-50 small mt-3">
+                        <li><strong>The Robot:</strong> Industrial-sized robots weighing up to ~125 lbs.</li>
+                        <li><strong>The Game:</strong> Complex field games played by 3-team alliances.</li>
+                        <li><strong>The Experience:</strong> Under strict rules and limited resources, students are challenged to raise funds, design a team "brand," and build a robot.</li>
+                    </ul>
+                    <a href="about.html" class="btn btn-outline-warning btn-sm mt-3">See Our Legacy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="info-box shadow-sm">
+                    <h3 class="team-title mb-3" style="color: #212121;">Why Join?</h3>
+                    <p class="mb-4">FIRST participants are significantly more likely to pursue Engineering and CS majors in college. It provides access to millions of dollars in scholarships and creates a network of professionals and mentors.</p>
+                    <a href="https://www.firstinspires.org/" target="_blank" class="btn btn-norse">Visit Official FIRST Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <img src="assets/school-logo.png" alt="Mt. Hebron High School Logo" class="footer-logo" onerror="this.style.display='none'">
+                        </div>
+                        <div>
+                            <h5 class="text-uppercase fw-bold mb-1">Mt. Hebron High School</h5>
+                            <p class="text-white-50 mb-0">
+                                9440 Old Frederick Rd,<br>
+                                Ellicott City, MD 21042
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-md-end">
+                    <h5 class="text-uppercase fw-bold">Contact Us</h5>
+                    <p class="mb-3">
+                        <a href="mailto:mthragnarok@gmail.com" class="text-white fs-5">mthragnarok@gmail.com</a>
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Team3748Ragnarok" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/frc3748/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/c/frcroboticsteam3748" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top border-secondary pt-2 text-center">
+                <small class="text-white">Copyright © 2025 Team 3748 Ragnarok Robotics</small><br />
+                <small class="text-white">Assisted by Google Gemini</small><br />
+                <small class="text-white">v1.0.0</small>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
