@@ -28,6 +28,73 @@
     <link rel="stylesheet" href="assets/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/viking-normal" rel="stylesheet">
+
+    <style>
+        /* Video Section Styling */
+        .video-wrapper {
+            border: 4px solid #212529;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Reef Level Indicators (repurposed for Zones/Heights) */
+        .reef-level {
+            background-color: #212121;
+            border-left: 5px solid #444;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .reef-level:hover {
+            background-color: #2a2a2a;
+            border-left-color: var(--ragnarok-gold);
+            transform: translateX(5px);
+        }
+
+        .reef-level h4 {
+            color: var(--ragnarok-gold);
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+
+        .reef-level span {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .game-piece-card {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .game-piece-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-red);
+        }
+
+        /* YouTube Button Hover overrides */
+        .btn-youtube:hover {
+            background-color: #FF0000;
+            color: white;
+            border-color: #FF0000;
+        }
+
+        .btn-youtube:hover i {
+            color: white !important;
+        }
+
+        /* Custom border for game images */
+        .game-image {
+            border: 2px solid var(--ragnarok-gold);
+        }
+    </style>
 </head>
 
 <body>
@@ -96,36 +163,119 @@
         </div>
     </header>
 
-    <section class="coming-soon-wrapper">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="coming-soon-card">
-                        <div class="icon-container">
-                            <i class="fas fa-hammer hammer-anim"></i>
+    <section class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="team-title mb-3" style="color: #212121;">Construct the Future</h2>
+                <p class="lead text-muted">
+                    In <strong>REBUILT</strong>, two alliances of three teams each reimagine the past to engineer the future. Teams must collect and process "Fuel," navigate under restricted "Trenches," and score into the central "Hub."
+                </p>
+                <p class="text-muted">
+                    The game features a rigorous packaging challenge, requiring robots to be compact enough to traverse low-clearance zones while robust enough to handle high-volume scoring.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="video-wrapper">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/9kRhE5vgCvY" title="2026 FIRST Robotics Competition REBUILT Kickoff" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="text-center mt-2">
+                    <small class="text-muted fst-italic">Official FIRST Robotics Competition 2026 Game Animation</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-12 text-center">
+                <h3 class="team-title text-dark">Game Elements</h3>
+            </div>
+            <div class="col-md-6">
+                <div class="game-piece-card">
+                    <i class="fas fa-circle game-piece-icon" style="color: #FFD700;"></i>
+                    <h4 class="viking-font text-dark">Fuel</h4>
+                    <p>Yellow, 5.91-inch diameter high-density foam balls. Robots collect Fuel from the field or human player stations and launch them into the Hub for points.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="game-piece-card">
+                    <i class="fas fa-road game-piece-icon" style="color: #6c757d;"></i>
+                    <h4 class="viking-font text-dark">The Trench</h4>
+                    <p>A structural tunnel crossing the field with a low clearance of approximately 22 inches. Robots must be designed with a low profile to navigate this shortcut efficiently.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5 p-4 bg-light rounded border align-items-stretch">
+            <div class="col-lg-6 mb-4 mb-lg-0 d-flex flex-column justify-content-between">
+
+                <div class="mb-4">
+                    <h2 class="team-title text-center" style="color: var(--primary-red);">The Objective</h2>
+
+                    <p>The field is divided by the <strong>Hub</strong> and the <strong>Trenches</strong>. Alliances must intake Fuel and rapidly score it into high and low goals within the Hub. Precision and speed are key as Fuel counts accumulate.</p>
+                    <div class="alert alert-dark border-gold py-2">
+                        <i class="fas fa-info-circle text-warning me-2"></i>
+                        <strong>Ranking Point:</strong> Achieving a specific Fuel throughput threshold earns the Ranking Point.
+                    </div>
+                </div>
+
+                <hr class="my-4" style="border-top: 2px solid var(--ragnarok-gold); opacity: 0.5;">
+
+                <div>
+                    <h2 class="team-title text-center" style="color: var(--primary-red);">Endgame</h2>
+
+                    <p>In the final seconds, robots must return to their hangar zone to execute a climb or suspension challenge, elevating their machines to secure final points.</p>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system" target="_blank" class="btn btn-norse btn-sm">Read Full Game Manual</a>
+
+                        <a href="https://www.youtube.com/watch?v=_fybREErgyM" target="_blank" class="btn btn-outline-dark btn-sm btn-youtube d-inline-flex align-items-center">
+                            <i class="fab fa-youtube me-2" style="color: #FF0000; font-size: 1.2rem;"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="sticky-lg-top" style="top: 100px; z-index: 1;">
+                    <h2 class="team-title text-center" style="color: var(--primary-red);">Scoring Zones</h2>
+                    <div class="reef-level">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>High Hub</h4>
+                            <span class="badge bg-warning text-dark">Max Points</span>
                         </div>
+                        <span>The upper opening of the central Hub. Requires a high-velocity shooter or extending mechanism.</span>
+                    </div>
 
-                        <h2 class="viking-font text-uppercase mt-4 mb-3">The Forge is Hot</h2>
-
-                        <p class="lead text-white-50">
-                            Our scouters and engineers are currently analyzing the schematics.
-                            <br>The "REBUILT" season reveal is approaching.
-                        </p>
-
-                        <hr class="divider-gold my-4">
-
-                        <div class="reveal-date">
-                            <span class="viking-font">Kickoff:</span>
-                            <span class="date-highlight">January 10, 2026</span>
+                    <div class="reef-level">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Low Hub</h4>
+                            <span class="badge bg-secondary">Efficiency</span>
                         </div>
+                        <span>The base opening of the Hub. Allows for rapid dumping of Fuel for volume scoring.</span>
+                    </div>
 
-                        <div class="mt-4">
-                            <a href="index.html" class="btn btn-norse">Return to Home</a>
+                    <div class="reef-level">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Trench Run</h4>
+                            <span class="badge bg-dark">Mobility</span>
                         </div>
+                        <span>Successfully navigating under the trench (22" clearance) unlocks shorter cycle times across the field.</span>
+                    </div>
+
+                    <div class="reef-level">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Hangar</h4>
+                            <span class="badge bg-danger">Endgame</span>
+                        </div>
+                        <span>Robots must elevate or park in the designated zone before the timer expires.</span>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <footer id="contact">
@@ -160,9 +310,9 @@
             </div>
 
             <div class="border-top border-secondary pt-2 text-center">
-                <small class="text-white">Copyright © 2025 Team 3748 Ragnarok Robotics</small><br />
+                <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini</small><br />
-                <small class="text-white">v1.0.6</small>
+                <small class="text-white">v1.0.7</small>
             </div>
         </div>
     </footer>
