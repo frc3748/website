@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE"></script>
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GL9Y0DFJPE"></script>
     <script>
@@ -242,24 +243,18 @@
 
             // Disable button immediately
             submitBtn.disabled = true;
+            submitBtn.classList.add('processing');
             submitBtn.textContent = "Processing...";
-
-            grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE', {action: 'LOGIN'});
-    });
-
-
 
             // 1. EXECUTE RECAPTCHA V3
             grecaptcha.enterprise.ready(function () {
-                grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'LOGIN' }).then(async function (token) {
-
+                const token = grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'INQUIRY' }).then(function (token) {
                     // 2. APPEND TOKEN TO DATA
                     const formData = new FormData(form);
                     formData.append('g-recaptcha-response', token);
 
                     try {
-                        const response = await fetch(GOOGLE_FUNCTION_URL, {
+                        const response = fetch(GOOGLE_FUNCTION_URL, {
                             method: 'POST',
                             body: formData
                         });
@@ -268,7 +263,7 @@
                             popup.style.display = 'flex';
                             form.reset();
                         } else {
-                            const errorText = await response.text();
+                            const errorText = response.text();
                             alert("Error: " + errorText);
                         }
                     } catch (error) {
