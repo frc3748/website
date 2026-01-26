@@ -218,6 +218,14 @@ footer a:hover {
     color: white;
 }
 
+.btn-norse:active,
+.btn-norse:focus,
+.btn-norse:active:focus {
+    color: white !important; /* Forces text to stay white */
+    background-color: #8e1515; /* Slightly darker red for click feedback */
+    border-color: #8e1515;
+}
+
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
