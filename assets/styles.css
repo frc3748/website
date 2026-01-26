@@ -218,12 +218,14 @@ footer a:hover {
     color: white;
 }
 
+/* Updated active state for better visibility */
 .btn-norse:active,
 .btn-norse:focus,
 .btn-norse:active:focus {
-    color: white !important; /* Forces text to stay white */
-    background-color: #8e1515; /* Slightly darker red for click feedback */
-    border-color: #8e1515;
+    color: white !important;
+    background-color: var(--ragnarok-gold) !important; /* Changes to Gold when pressed */
+    border-color: var(--ragnarok-gold);
+    box-shadow: 0 0 8px rgba(234, 173, 31, 0.5); /* Adds a slight glow */
 }
 
 button:disabled {

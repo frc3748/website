@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GL9Y0DFJPE"></script>
     <script>
@@ -244,9 +244,15 @@
             submitBtn.disabled = true;
             submitBtn.textContent = "Processing...";
 
+            grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6Ldw9VUsAAAAAGt-sPd_kOGwhTmH65lT_wfiJ0tE', {action: 'LOGIN'});
+    });
+
+
+
             // 1. EXECUTE RECAPTCHA V3
-            grecaptcha.ready(function () {
-                grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(async function (token) {
+            grecaptcha.enterprise.ready(function () {
+                grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'LOGIN' }).then(async function (token) {
 
                     // 2. APPEND TOKEN TO DATA
                     const formData = new FormData(form);
