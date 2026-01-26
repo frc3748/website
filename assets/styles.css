@@ -227,6 +227,18 @@ footer a:hover {
     border-color: var(--ragnarok-gold);
     box-shadow: 0 0 8px rgba(234, 173, 31, 0.5); /* Adds a slight glow */
 }
+.btn-norse:disabled {
+    background-color: #444 !important; /* Darker than the background but visible */
+    color: #888 !important;            /* Muted text color */
+    cursor: not-allowed;
+    border: 1px solid #555;
+}
+
+/* Optional: Add a specific style for when the button is 'processing' */
+.btn-norse.processing {
+    background-color: var(--ragnarok-gold);
+    color: var(--dark-grey);
+}
 
 button:disabled {
     background-color: #ccc;
