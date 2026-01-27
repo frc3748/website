@@ -214,9 +214,9 @@
             </div>
 
             <div class="border-top border-secondary pt-2 text-center">
-                <small class="text-white">Copyright © 2025 Team 3748 Ragnarok Robotics</small><br />
+                <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini</small><br />
-                <small class="text-white">v1.0.8</small>
+                <small class="text-white">v1.0.9</small>
             </div>
         </div>
     </footer>
@@ -244,8 +244,6 @@
             try {
                 // Disable button immediately
                 submitBtn.disabled = true;
-
-                const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<span class="spinner"></span> SENDING...';
 
                 // 2. Wait for reCAPTCHA token
@@ -280,7 +278,7 @@
             } finally {
                 // 5. Always re-enable button after completion or failure
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
+                submitBtn.innerHTML = "SEND MESSAGE";
             }
         });
 
