@@ -244,7 +244,7 @@
             // Disable button immediately
             submitBtn.disabled = true;
             submitBtn.classList.add('processing');
-            submitBtn.textContent = "Processing...";
+            submitBtn.innerHTML = '<span class="spinner"></span> SENDING...';
 
             // 1. EXECUTE RECAPTCHA V3
             grecaptcha.enterprise.ready(function () {
@@ -272,7 +272,7 @@
                         alert("Failed to connect to the server.");
                     } finally {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = "SEND MESSAGE";
+                        submitBtn.innerHTML = "SEND MESSAGE";
                     }
                 });
             });
