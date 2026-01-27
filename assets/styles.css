@@ -240,6 +240,32 @@ footer a:hover {
     color: white;
 }
 
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Ensure visibility when disabled */
+.btn-norse:disabled {
+    background-color: var(--primary-red) !important; /* Keep the red or use var(--ragnarok-gold) */
+    opacity: 0.8;
+    color: white !important;
+    cursor: not-allowed;
+}
+
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
