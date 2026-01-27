@@ -241,41 +241,46 @@
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Disable button immediately
-            submitBtn.disabled = true;
-            submitBtn.classList.add('processing');
-            submitBtn.innerHTML = '<span class="spinner"></span> SENDING...';
+            try {
+                // Disable button immediately
+                submitBtn.disabled = true;
+                //            submitBtn.classList.add('processing');
+                submitBtn.innerHTML = '<span class="spinner"></span> SENDING...';
 
-            // 1. EXECUTE RECAPTCHA V3
-            grecaptcha.enterprise.ready(function () {
-                const token = grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'INQUIRY' }).then(function (token) {
-                    // 2. APPEND TOKEN TO DATA
-                    const formData = new FormData(form);
-                    formData.append('g-recaptcha-response', token);
-
-                    try {
-                        const response = fetch(GOOGLE_FUNCTION_URL, {
-                            method: 'POST',
-                            body: formData
-                        }).then(async function (response) {
-
-                            if (response.ok) {
-                                popup.style.display = 'flex';
-                                form.reset();
-                            } else {
-                                const errorText = response.text();
-                                alert("Error: " + errorText);
-                            }
-                        });
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert("Failed to connect to the server.");
-                    } finally {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = "SEND MESSAGE";
-                    }
+                // 2. Wait for reCAPTCHA token
+                const token = await new Promise((resolve, reject) => {
+                    grecaptcha.enterprise.ready(() => {
+                        grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'INQUIRY' })
+                            .then(resolve)
+                            .catch(reject);
+                    });
                 });
-            });
+
+                // 3. Prepare data
+                const formData = new FormData(form);
+                formData.append('g-recaptcha-response', token);
+
+                // 4. Send the request
+                const response = await fetch(GOOGLE_FUNCTION_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    popup.style.display = 'flex';
+                    form.reset();
+                } else {
+                    const errorText = await response.text();
+                    alert("Error: " + errorText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("Failed to connect to the server.");
+            } finally {
+                // 5. Always re-enable button after completion or failure
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
 
         function closePopup() {
