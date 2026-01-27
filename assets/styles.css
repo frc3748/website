@@ -418,6 +418,10 @@ button:disabled {
     margin-bottom: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .member-card:hover {
@@ -427,9 +431,10 @@ button:disabled {
 }
 
 .member-img-wrapper {
-    height: 250px;
+    height: 250px; /* This keeps the image area consistent */
     overflow: hidden;
     border-bottom: 3px solid #eaad1f;
+    flex-shrink: 0; /* Prevents the image area from squishing */
 }
 
 .member-img-wrapper img {
@@ -446,6 +451,8 @@ button:disabled {
 .member-info {
     padding: 20px;
     color: white;
+
+    flex-grow: 1;
 }
 
 .member-info h4 {
