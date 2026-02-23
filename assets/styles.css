@@ -11,12 +11,34 @@
    8. ANIMATIONS .............. Keyframes and Ticker behaviors
    ========================================================================== */
 
-   @media (max-width: 768px) {
-        .navbar-brand img {
-        height: 60px;    /* Smaller height for smaller screens */
-        margin-right: 8px;
-        }
+/* Prevent the collapse from taking up 100% width on desktop */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
     }
+
+    .navbar-brand {
+        margin-right: 2rem;
+        /* Spacing between logo and first link */
+    }
+}
+
+/* Center items on mobile when toggled */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 60px;
+        /* Smaller height for smaller screens */
+        margin-right: 8px;
+    }
+}
 
 /* =========================================
    1. VARIABLES & RESET
@@ -71,14 +93,21 @@ td,
     font-family: var(--font-display);
     color: var(--ragnarok-gold);
     font-weight: 700;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand img {
     height: 80px;
-    width: auto;         /* Maintains aspect ratio */
-    margin-right: 12px;  /* Space between logo and "Team 3748" */
-    display: block;      /* Prevents weird baseline spacing */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    width: auto;
+    /* Maintains aspect ratio */
+    margin-right: 12px;
+    /* Space between logo and "Team 3748" */
+    display: block;
+    /* Prevents weird baseline spacing */
+    transition: transform 0.3s ease;
+    /* Smooth hover effect */
 }
 
 /* Optional: Slight lift effect when hovering over the brand */
@@ -128,6 +157,19 @@ td,
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--ragnarok-gold);
     font-weight: bold;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.btn-equal-width {
+    min-width: 175px;
+    text-align: center;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 /* --- Hero & Carousel --- */
@@ -237,13 +279,18 @@ footer a:hover {
 .btn-norse:focus,
 .btn-norse:active:focus {
     color: white !important;
-    background-color: var(--ragnarok-gold) !important; /* Changes to Gold when pressed */
+    background-color: var(--ragnarok-gold) !important;
+    /* Changes to Gold when pressed */
     border-color: var(--ragnarok-gold);
-    box-shadow: 0 0 8px rgba(234, 173, 31, 0.5); /* Adds a slight glow */
+    box-shadow: 0 0 8px rgba(234, 173, 31, 0.5);
+    /* Adds a slight glow */
 }
+
 .btn-norse:disabled {
-    background-color: #0000ff !important; /* Darker than the background but visible */
-    color: #888 !important;            /* Muted text color */
+    background-color: #0000ff !important;
+    /* Darker than the background but visible */
+    color: #888 !important;
+    /* Muted text color */
     cursor: not-allowed;
     border: 1px solid #555;
 }
@@ -256,8 +303,13 @@ footer a:hover {
 
 /* Spinner Animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .spinner {
@@ -274,7 +326,8 @@ footer a:hover {
 
 /* Ensure visibility when disabled */
 .btn-norse:disabled {
-    background-color: var(--primary-red) !important; /* Keep the red or use var(--ragnarok-gold) */
+    background-color: var(--primary-red) !important;
+    /* Keep the red or use var(--ragnarok-gold) */
     opacity: 0.8;
     color: white !important;
     cursor: not-allowed;
@@ -445,10 +498,12 @@ button:disabled {
 }
 
 .member-img-wrapper {
-    height: 250px; /* This keeps the image area consistent */
+    height: 250px;
+    /* This keeps the image area consistent */
     overflow: hidden;
     border-bottom: 3px solid #eaad1f;
-    flex-shrink: 0; /* Prevents the image area from squishing */
+    flex-shrink: 0;
+    /* Prevents the image area from squishing */
 }
 
 .member-img-wrapper img {
