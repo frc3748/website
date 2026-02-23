@@ -11,6 +11,13 @@
    8. ANIMATIONS .............. Keyframes and Ticker behaviors
    ========================================================================== */
 
+   @media (max-width: 768px) {
+        .navbar-brand img {
+        height: 60px;    /* Smaller height for smaller screens */
+        margin-right: 8px;
+        }
+    }
+
 /* =========================================
    1. VARIABLES & RESET
    ========================================= */
@@ -67,9 +74,16 @@ td,
 }
 
 .navbar-brand img {
-    height: 50px;
-    width: auto;
-    margin-right: 10px;
+    height: 80px;
+    width: auto;         /* Maintains aspect ratio */
+    margin-right: 12px;  /* Space between logo and "Team 3748" */
+    display: block;      /* Prevents weird baseline spacing */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Optional: Slight lift effect when hovering over the brand */
+.navbar-brand:hover img {
+    transform: scale(1.05);
 }
 
 .navbar-brand span {
