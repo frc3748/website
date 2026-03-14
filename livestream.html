@@ -175,7 +175,7 @@
 
                     <div class="stream-container">
                         <iframe
-                            src="https://www.youtube.com/embed/l2KbqI3ZNtk?autoplay=1&rel=0"
+                            src="https://www.youtube.com/embed/l2KbqI3ZNtk?autoplay=1&mute=1&rel=0"
                             title="Team 3748 Ragnarok Robotics Live Stream"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
@@ -245,6 +245,7 @@
                         <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
                             <thead>
                                 <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Time</th>
                                     <th>Match</th>
                                     <th>Alliance</th>
                                     <th>Partners</th>
@@ -256,6 +257,25 @@
                             </thead>
                             <tbody id="tba-matches-body">
                                 <tr><td colspan="7" class="text-white-50 text-center">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- All Teams Rankings table -->
+                    <h6 class="text-uppercase text-white-50 mb-2 mt-4" style="letter-spacing:1px;">Event Rankings</h6>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                            <thead>
+                                <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Rank</th>
+                                    <th>Team</th>
+                                    <th>W&nbsp;–&nbsp;L&nbsp;–&nbsp;T</th>
+                                    <th>RP</th>
+                                    <th>Avg Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tba-rankings-body">
+                                <tr><td colspan="5" class="text-white-50 text-center">Loading...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -300,7 +320,7 @@
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini</small><br />
                 <small class="text-white">Assisted by Anthropic Claude</small><br />
-                <small class="text-white">v1.0.15</small>
+                <small class="text-white">v1.0.16</small>
             </div>
         </div>
     </footer>
@@ -362,6 +382,7 @@
 
             return `
                 <tr>
+                    <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${matchTime(match)}</td>
                     <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
                     <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
                     <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
@@ -370,6 +391,13 @@
                     <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(theirScore)}</td>
                     <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
                 </tr>`;
+        }
+
+        function matchTime(match) {
+            const ts = match.actual_time || match.predicted_time || match.time;
+            if (!ts) return '<span class="text-white-50">—</span>';
+            const d = new Date(ts * 1000);
+            return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
         }
 
         async function loadTBA() {
@@ -416,6 +444,29 @@
                 const rows = matches.map(matchResult).filter(Boolean).join('');
                 const tbody = document.getElementById('tba-matches-body');
                 tbody.innerHTML = rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
+
+                // All teams rankings
+                const allRankings = rankings?.rankings || [];
+                const rankingsRows = allRankings.map(r => {
+                    const teamNum = r.team_key.replace('frc', '');
+                    const isOurs = r.team_key === TEAM_KEY;
+                    const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
+                    const teamLabel = isOurs
+                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${teamNum}</span>`
+                        : teamNum;
+                    const rec = r.record;
+                    const avgScore = r.sort_orders?.[0] != null ? r.sort_orders[0].toFixed(1) : '—';
+                    const rp = r.extra_stats?.[0] ?? '—';
+                    return `<tr style="${rowStyle}">
+                        <td>${rankBadge(r.rank)}</td>
+                        <td>${teamLabel}</td>
+                        <td class="text-white-50">${rec.wins}–${rec.losses}–${rec.ties}</td>
+                        <td class="text-white-50">${rp}</td>
+                        <td class="text-white-50">${avgScore}</td>
+                    </tr>`;
+                }).join('');
+                document.getElementById('tba-rankings-body').innerHTML =
+                    rankingsRows || '<tr><td colspan="5" class="text-white-50 text-center">No rankings available yet.</td></tr>';
 
                 document.getElementById('tba-section').style.display = '';
             } catch (e) {
