@@ -197,6 +197,74 @@
         </div>
     </section>
 
+    <!-- Blue Alliance Event Data -->
+    <section id="tba-section" style="background:#0d0d0d; padding:2rem 0 3rem; display:none;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-10">
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Data</h4>
+                        <span class="text-white-50" style="font-size:.85rem;">
+                            <span id="tba-event-name"></span> &middot;
+                            <span id="tba-event-location"></span> &middot;
+                            <span id="tba-event-dates"></span>
+                        </span>
+                        <a href="https://www.thebluealliance.com/event/2026mdpas" target="_blank"
+                           class="ms-auto text-decoration-none"
+                           style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
+                            View on TBA <i class="fas fa-external-link-alt ms-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- Ranking card -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Ranking</div>
+                                <div id="tba-rank" style="font-size:1.4rem;">—</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Record</div>
+                                <div id="tba-record" class="text-white fw-bold" style="font-size:1.4rem;">—</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Ranking Points</div>
+                                <div id="tba-rp" class="text-white fw-bold" style="font-size:1.4rem;">—</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match table -->
+                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Team 3748 Matches</h6>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                            <thead>
+                                <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Match</th>
+                                    <th>Alliance</th>
+                                    <th>Partners</th>
+                                    <th>Opponents</th>
+                                    <th>Our Score</th>
+                                    <th>Opp Score</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tba-matches-body">
+                                <tr><td colspan="7" class="text-white-50 text-center">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="contact">
         <div class="container">
             <div class="row align-items-center mb-2">
@@ -232,12 +300,132 @@
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini</small><br />
                 <small class="text-white">Assisted by Anthropic Claude</small><br />
-                <small class="text-white">v1.0.14</small>
+                <small class="text-white">v1.0.15</small>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // -------------------------------------------------------
+        // Blue Alliance API key — generate yours at:
+        // https://www.thebluealliance.com/account
+        // -------------------------------------------------------
+        const TBA_KEY = 'ZniXUCSAN2pPd9VhUm2ze7aA0p3zN6J3Au5SnGZh4UZ8krkYCgROLmuDeAFFe2lB';
+        const EVENT_KEY = '2026mdpas';
+        const TBA_BASE = 'https://www.thebluealliance.com/api/v3';
+        const TEAM_KEY = 'frc3748';
+
+        async function tbaFetch(path) {
+            const res = await fetch(`${TBA_BASE}${path}`, {
+                headers: { 'X-TBA-Auth-Key': TBA_KEY }
+            });
+            if (!res.ok) throw new Error(`TBA ${res.status}`);
+            return res.json();
+        }
+
+        function rankBadge(rank) {
+            if (rank === 1) return '<span class="badge" style="background:#c8a84b;color:#000;">🏆 #1</span>';
+            if (rank <= 3) return `<span class="badge bg-secondary">#${rank}</span>`;
+            return `<span class="badge bg-dark border border-secondary">#${rank}</span>`;
+        }
+
+        function scoreCell(score) {
+            if (score === null || score === undefined || score < 0) return '<span class="text-white-50">—</span>';
+            return `<strong>${score}</strong>`;
+        }
+
+        function matchResult(match) {
+            const r = match.alliances.red, b = match.alliances.blue;
+            const inRed  = r.team_keys.includes(TEAM_KEY);
+            const inBlue = b.team_keys.includes(TEAM_KEY);
+            if (!inRed && !inBlue) return '';
+
+            const ourScore   = inRed ? r.score : b.score;
+            const theirScore = inRed ? b.score : r.score;
+            const pending = ourScore < 0;
+
+            let resultClass = 'text-white-50';
+            let resultLabel = 'Pending';
+            if (!pending) {
+                if (ourScore > theirScore)  { resultClass = 'text-success'; resultLabel = 'Win'; }
+                else if (ourScore < theirScore) { resultClass = 'text-danger'; resultLabel = 'Loss'; }
+                else { resultClass = 'text-warning'; resultLabel = 'Tie'; }
+            }
+
+            const compLevel = { qm:'Qual', qf:'QF', sf:'SF', f:'Final' }[match.comp_level] || match.comp_level;
+            const matchNum  = match.comp_level === 'qm' ? `${compLevel} ${match.match_number}` : `${compLevel} M${match.match_number}`;
+            const ourColor  = inRed ? 'danger' : 'primary';
+            const allies    = (inRed ? r : b).team_keys.filter(k => k !== TEAM_KEY).map(k => k.replace('frc', '')).join(', ');
+            const opponents = (inRed ? b : r).team_keys.map(k => k.replace('frc', '')).join(', ');
+
+            return `
+                <tr>
+                    <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
+                    <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
+                    <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
+                    <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
+                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(ourScore)}</td>
+                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(theirScore)}</td>
+                    <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
+                </tr>`;
+        }
+
+        async function loadTBA() {
+            if (TBA_KEY === 'YOUR_TBA_API_KEY_HERE') {
+                document.getElementById('tba-section').innerHTML =
+                    `<div class="alert alert-warning">Add your TBA API key to <code>livestream.html</code> to show live event data.</div>`;
+                return;
+            }
+            try {
+                const [eventInfo, rankings, matches] = await Promise.all([
+                    tbaFetch(`/event/${EVENT_KEY}/simple`),
+                    tbaFetch(`/event/${EVENT_KEY}/rankings`),
+                    tbaFetch(`/event/${EVENT_KEY}/matches`)
+                ]);
+
+                // Event header
+                const dates = `${eventInfo.start_date} – ${eventInfo.end_date}`;
+                document.getElementById('tba-event-name').textContent = eventInfo.name;
+                document.getElementById('tba-event-dates').textContent = dates;
+                document.getElementById('tba-event-location').textContent = `${eventInfo.city}, ${eventInfo.state_prov}`;
+
+                // Rankings
+                const rankRow = rankings?.rankings?.find(r => r.team_key === TEAM_KEY);
+                if (rankRow) {
+                    const total = rankings.rankings.length;
+                    document.getElementById('tba-rank').innerHTML =
+                        `${rankBadge(rankRow.rank)} <span class="text-white-50 ms-1">of ${total}</span>`;
+                    document.getElementById('tba-record').textContent =
+                        `${rankRow.record.wins}W – ${rankRow.record.losses}L – ${rankRow.record.ties}T`;
+                    document.getElementById('tba-rp').textContent = rankRow.extra_stats?.[0] ?? '—';
+                } else {
+                    document.getElementById('tba-rank').textContent = '—';
+                    document.getElementById('tba-record').textContent = '—';
+                    document.getElementById('tba-rp').textContent = '—';
+                }
+
+                // Matches — sort by time, then build rows
+                matches.sort((a, b) => {
+                    const order = ['qm','qf','sf','f'];
+                    const lo = order.indexOf(a.comp_level) - order.indexOf(b.comp_level);
+                    if (lo !== 0) return lo;
+                    return (a.match_number || 0) - (b.match_number || 0);
+                });
+                const rows = matches.map(matchResult).filter(Boolean).join('');
+                const tbody = document.getElementById('tba-matches-body');
+                tbody.innerHTML = rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
+
+                document.getElementById('tba-section').style.display = '';
+            } catch (e) {
+                document.getElementById('tba-section').innerHTML =
+                    `<div class="alert alert-danger">Could not load event data: ${e.message}</div>`;
+            }
+        }
+
+        loadTBA();
+    </script>
 </body>
 
 </html>
