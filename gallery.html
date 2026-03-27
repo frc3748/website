@@ -107,13 +107,6 @@
 
     <section class="py-5" style="background-color: #f8f9fa;">
         <div class="container">
-            <div class="row mb-4">
-                <div class="col-12 text-center">
-                    <h2 class="text-uppercase" style="color: var(--dark-grey);">2025 Season Highlights</h2>
-                    <div style="height: 3px; width: 60px; background-color: var(--ragnarok-gold); margin: 10px auto;"></div>
-                </div>
-            </div>
-
             <div id="loading-spinner" class="text-center">
                 <div class="spinner-border text-warning" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -121,6 +114,19 @@
             </div>
 
             <div class="row g-4" id="gallery-container">
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="row mt-5" id="pagination-container" style="display: none !important;">
+                <div class="col-12 d-flex justify-content-center align-items-center gap-3">
+                    <button id="btn-prev" class="btn btn-norse" onclick="changePage(-1)" disabled>
+                        <i class="fas fa-chevron-left me-1"></i> Previous
+                    </button>
+                    <span id="page-indicator" class="text-muted fw-semibold"></span>
+                    <button id="btn-next" class="btn btn-norse" onclick="changePage(1)">
+                        Next <i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -170,79 +176,86 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.20</small>
+                <small class="text-white">v1.0.21</small>
             </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        const GOOGLE_FUNCTION_URL = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-image-provider';
+
+        let currentPage = 1;
+        let totalPages = 1;
+
+        async function fetchGalleryImages(page) {
             const galleryContainer = document.getElementById('gallery-container');
-            const modalImage = document.getElementById('modalImage');
             const loadingSpinner = document.getElementById('loading-spinner');
+            const paginationContainer = document.getElementById('pagination-container');
 
-            // --- CONFIGURATION ---
-            // Replace the URL below with your actual Google Cloud Function / API endpoint.
-            // Expected JSON format: ["https://example.com/img1.jpg", "https://example.com/img2.jpg", ...]
-            const GOOGLE_FUNCTION_URL = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-image-provider';
+            galleryContainer.innerHTML = '';
+            if (loadingSpinner) loadingSpinner.style.display = 'block';
 
-            // Function to fetch and render images
-            async function fetchGalleryImages() {
-                try {
-                    const response = await fetch(GOOGLE_FUNCTION_URL);
+            try {
+                const response = await fetch(`${GOOGLE_FUNCTION_URL}?page=${page}`);
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-                    // Assume the function returns an array of image URL strings
-                    const imageUrls = await response.json();
+                const data = await response.json();
 
-                    // Hide the spinner once data is received
-                    if (loadingSpinner) loadingSpinner.style.display = 'none';
+                if (loadingSpinner) loadingSpinner.style.display = 'none';
 
-                    // Check if we got an array
-                    if (!Array.isArray(imageUrls)) {
-                        console.error("API did not return an array.");
-                        return;
-                    }
+                const { images, page: currentP, totalPages: totalP } = data;
+                currentPage = currentP;
+                totalPages = totalP;
 
-                    // Loop through the retrieved URLs and create elements
-                    imageUrls.forEach((src, i) => {
-                        const col = document.createElement('div');
-                        col.className = 'col-6 col-md-4 col-lg-3';
-
-                        col.innerHTML = `
-                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-src="${src}">
-                                <div class="ratio ratio-4x3">
-                                    <img src="${src}" alt="Gallery Image ${i + 1}" loading="lazy" style="object-fit: cover;">
-                                </div>
-                                <div class="gallery-overlay">
-                                    <i class="fas fa-search-plus"></i>
-                                </div>
-                            </div>
-                        `;
-
-                        galleryContainer.appendChild(col);
-                    });
-
-                } catch (error) {
-                    console.error('Error fetching gallery images:', error);
-                    if (loadingSpinner) loadingSpinner.style.display = 'none';
-                    galleryContainer.innerHTML = `<div class="col-12 text-center text-danger"><p>Unable to load gallery images at this time.</p></div>`;
+                if (!Array.isArray(images) || images.length === 0) {
+                    galleryContainer.innerHTML = `<div class="col-12 text-center text-muted"><p>No images found.</p></div>`;
+                    return;
                 }
+
+                images.forEach((src, i) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-6 col-md-4 col-lg-3';
+                    col.innerHTML = `
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-src="${src}">
+                            <div class="ratio ratio-4x3">
+                                <img src="${src}" alt="Gallery Image ${i + 1}" loading="lazy" style="object-fit: cover;">
+                            </div>
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    `;
+                    galleryContainer.appendChild(col);
+                });
+
+                // Update pagination controls
+                document.getElementById('page-indicator').textContent = `Page ${currentPage} of ${totalPages}`;
+                document.getElementById('btn-prev').disabled = currentPage <= 1;
+                document.getElementById('btn-next').disabled = currentPage >= totalPages;
+                paginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
+
+            } catch (error) {
+                console.error('Error fetching gallery images:', error);
+                if (loadingSpinner) loadingSpinner.style.display = 'none';
+                galleryContainer.innerHTML = `<div class="col-12 text-center text-danger"><p>Unable to load gallery images at this time.</p></div>`;
             }
+        }
 
-            // Initiate the fetch
-            fetchGalleryImages();
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage < 1 || newPage > totalPages) return;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            fetchGalleryImages(newPage);
+        }
 
-            // Event Listener to update Modal Image on click
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchGalleryImages(1);
+
             const galleryModalElement = document.getElementById('galleryModal');
             if (galleryModalElement) {
                 galleryModalElement.addEventListener('show.bs.modal', function (event) {
-                    const triggerElement = event.relatedTarget;
-                    const src = triggerElement.getAttribute('data-src');
-                    modalImage.src = src;
+                    document.getElementById('modalImage').src = event.relatedTarget.getAttribute('data-src');
                 });
             }
         });
