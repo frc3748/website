@@ -228,11 +228,7 @@
 
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Data</h4>
-                        <span class="text-white-50" style="font-size:.85rem;">
-                            <span id="tba-event-name"></span> &middot;
-                            <span id="tba-event-location"></span> &middot;
-                            <span id="tba-event-dates"></span>
-                        </span>
+
                         <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
                             <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">5:00</span>
                         </span>
@@ -345,7 +341,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.27</small>
+                <small class="text-white">v1.0.28</small>
             </div>
         </div>
     </footer>
@@ -439,11 +435,7 @@
                     tbaFetch(`/event/${EVENT_KEY}/matches`)
                 ]);
 
-                // Event header
-                const dates = `${eventInfo.start_date} – ${eventInfo.end_date}`;
-                document.getElementById('tba-event-name').textContent = eventInfo.name;
-                document.getElementById('tba-event-dates').textContent = dates;
-                document.getElementById('tba-event-location').textContent = `${eventInfo.city}, ${eventInfo.state_prov}`;
+                // Event header elements removed
 
                 // Rankings
                 const rankRow = rankings?.rankings?.find(r => r.team_key === TEAM_KEY);
