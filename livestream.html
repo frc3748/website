@@ -233,6 +233,9 @@
                             <span id="tba-event-location"></span> &middot;
                             <span id="tba-event-dates"></span>
                         </span>
+                        <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
+                            <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">5:00</span>
+                        </span>
                         <a href="https://www.thebluealliance.com/event/2026mdsev" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
@@ -342,7 +345,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.26</small>
+                <small class="text-white">v1.0.27</small>
             </div>
         </div>
     </footer>
@@ -423,6 +426,7 @@
         }
 
         async function loadTBA() {
+            countdownSeconds = REFRESH_INTERVAL_MS / 1000;
             if (TBA_KEY === 'YOUR_TBA_API_KEY_HERE') {
                 document.getElementById('tba-section').innerHTML =
                     `<div class="alert alert-warning">Add your TBA API key to <code>livestream.html</code> to show live event data.</div>`;
@@ -497,8 +501,21 @@
             }
         }
 
+        const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+        let countdownSeconds = REFRESH_INTERVAL_MS / 1000;
+
+        function updateCountdown() {
+            countdownSeconds--;
+            if (countdownSeconds < 0) countdownSeconds = REFRESH_INTERVAL_MS / 1000;
+            const m = Math.floor(countdownSeconds / 60);
+            const s = countdownSeconds % 60;
+            const el = document.getElementById('tba-countdown-seconds');
+            if (el) el.textContent = `${m}:${String(s).padStart(2, '0')}`;
+        }
+
         loadTBA();
-        setInterval(loadTBA, 5 * 60 * 1000);
+        setInterval(loadTBA, REFRESH_INTERVAL_MS);
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 
