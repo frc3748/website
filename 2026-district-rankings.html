@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
 
-<body>
+<body style="background-color:#0d0d0d;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container d-flex justify-content-center align-items-center">
             <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
@@ -116,7 +116,7 @@
                         <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
                             <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">5:00</span>
                         </span>
-                        <a href="https://www.thebluealliance.com/district/2026fch/rankings" target="_blank"
+                        <a href="https://www.thebluealliance.com/events/fch/2026#rankings" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
                             View on TBA <i class="fas fa-external-link-alt ms-1"></i>
@@ -159,13 +159,15 @@
                                     <th>Rank</th>
                                     <th>Team</th>
                                     <th>Name</th>
-                                    <th>Points</th>
+                                    <th>Total Pts</th>
+                                    <th style="text-align:center;" title="Event 1 district points">Evt 1 Pts</th>
+                                    <th style="text-align:center;" title="Event 2 district points">Evt 2 Pts</th>
                                     <th style="text-align:center;" title="Qualified for District Championship">DCMP</th>
                                     <th style="text-align:center;" title="Qualified for Championship">CMP</th>
                                 </tr>
                             </thead>
                             <tbody id="district-rankings-body">
-                                <tr><td colspan="6" class="text-white-50 text-center">Loading...</td></tr>
+                                <tr><td colspan="8" class="text-white-50 text-center">Loading...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -204,7 +206,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.33</small>
+                <small class="text-white">v1.0.35</small>
             </div>
         </div>
     </footer>
@@ -296,18 +298,23 @@
                     const qualCmp  = advancement[r.team_key]?.cmp  ?? false;
                     const dcmp = qualDcmp ? '✅' : '⬜';
                     const cmp  = qualCmp  ? '✅' : '⬜';
+                    const evts = (r.event_points || []).slice().sort((a, b) => a.event_key.localeCompare(b.event_key));
+                    const evt1 = evts[0] ? `<span title="${evts[0].event_key}">${evts[0].total}</span>` : '—';
+                    const evt2 = evts[1] ? `<span title="${evts[1].event_key}">${evts[1].total}</span>` : '—';
                     return `<tr style="${rowStyle}">
                         <td>${rankBadge(r.rank)}</td>
                         <td>${teamLabel}</td>
                         <td class="text-white-50" style="font-size:.8rem;">${teamName}</td>
                         <td class="text-white fw-semibold">${r.point_total ?? '—'}</td>
+                        <td class="text-white-50" style="text-align:center;">${evt1}</td>
+                        <td class="text-white-50" style="text-align:center;">${evt2}</td>
                         <td style="text-align:center;">${dcmp}</td>
                         <td style="text-align:center;">${cmp}</td>
                     </tr>`;
                 }).join('');
 
                 document.getElementById('district-rankings-body').innerHTML =
-                    rows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available yet.</td></tr>';
+                    rows || '<tr><td colspan="8" class="text-white-50 text-center">No rankings available yet.</td></tr>';
 
                 document.getElementById('tba-section').style.display = '';
             } catch (e) {
