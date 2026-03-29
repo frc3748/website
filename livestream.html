@@ -291,6 +291,7 @@
                                 <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
                                     <th>Rank</th>
                                     <th>Team</th>
+                                    <th>Name</th>
                                     <th>W&nbsp;–&nbsp;L&nbsp;–&nbsp;T</th>
                                     <th>RP</th>
                                     <th>Avg Score</th>
@@ -341,7 +342,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.29</small>
+                <small class="text-white">v1.0.30</small>
             </div>
         </div>
     </footer>
@@ -429,11 +430,16 @@
                 return;
             }
             try {
-                const [eventInfo, rankings, matches] = await Promise.all([
+                const [eventInfo, rankings, matches, teams] = await Promise.all([
                     tbaFetch(`/event/${EVENT_KEY}/simple`),
                     tbaFetch(`/event/${EVENT_KEY}/rankings`),
-                    tbaFetch(`/event/${EVENT_KEY}/matches`)
+                    tbaFetch(`/event/${EVENT_KEY}/matches`),
+                    tbaFetch(`/event/${EVENT_KEY}/teams/simple`)
                 ]);
+
+                // Build team number → nickname lookup
+                const teamNames = {};
+                (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
 
                 // Event header elements removed
 
@@ -467,6 +473,7 @@
                 const allRankings = rankings?.rankings || [];
                 const rankingsRows = allRankings.map(r => {
                     const teamNum = r.team_key.replace('frc', '');
+                    const teamName = teamNames[r.team_key] || '';
                     const isOurs = r.team_key === TEAM_KEY;
                     const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
                     const teamLabel = isOurs
@@ -478,13 +485,14 @@
                     return `<tr style="${rowStyle}">
                         <td>${rankBadge(r.rank)}</td>
                         <td>${teamLabel}</td>
+                        <td class="text-white-50" style="font-size:.8rem;">${teamName}</td>
                         <td class="text-white-50">${rec.wins}–${rec.losses}–${rec.ties}</td>
                         <td class="text-white-50">${rp}</td>
                         <td class="text-white-50">${avgScore}</td>
                     </tr>`;
                 }).join('');
                 document.getElementById('tba-rankings-body').innerHTML =
-                    rankingsRows || '<tr><td colspan="5" class="text-white-50 text-center">No rankings available yet.</td></tr>';
+                    rankingsRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available yet.</td></tr>';
 
                 document.getElementById('tba-section').style.display = '';
             } catch (e) {
