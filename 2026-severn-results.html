@@ -9,7 +9,6 @@
         gtag('js', new Date());
         gtag('config', 'G-GL9Y0DFJPE');
     </script>
-
     <script>
         !function (t, e) { var o, n, p, r; e.__SV || (window.posthog && window.posthog.__loaded) || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init Xr es pi Zr rs Kr Qr capture Ni calculateEventProperties os register register_once register_for_session unregister unregister_for_session ds getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty us ns createPersonProfile hs Vr vs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing ss debug O ls getPageViewId captureTraceFeedback captureTraceMetric qr".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
         posthog.init('phc_wJi8g0MuuEUg1bifQw6wfPsVhRCd9dKdzjUw3xl9uZJ', {
@@ -18,10 +17,9 @@
             person_profiles: 'identified_only',
         })
     </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasadena Results | Team 3748 Ragnarok Robotics</title>
+    <title>Severn Run Results | Team 3748 Ragnarok Robotics</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
@@ -59,7 +57,8 @@
                             <li><h6 class="dropdown-header">2026 RebuilT</h6></li>
                             <li><a class="dropdown-item" href="2026-game.html">Season Overview</a></li>
                             <li><a class="dropdown-item" href="2026-district-rankings.html">District Rankings</a></li>
-                            <li><a class="dropdown-item active" href="2026-pasadena-results.html">Pasadena Results</a></li>
+                            <li><a class="dropdown-item" href="2026-pasadena-results.html">Pasadena Results</a></li>
+                            <li><a class="dropdown-item active" href="2026-severn-results.html">Severn Run Results</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
                             <li><a class="dropdown-item" href="2025-game.html">2025 Season</a></li>
@@ -102,8 +101,8 @@
 
     <header class="main-hero">
         <div class="container">
-            <h1 class="display-3 mb-2" style="white-space:nowrap;">Pasadena Results</h1>
-            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">2026 FCH District Pasadena MD Event — March 13–15, 2026</p>
+            <h1 class="display-3 mb-2">Severn Run Results</h1>
+            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">2026 FCH District Severn MD Event — March 27–29, 2026</p>
         </div>
     </header>
 
@@ -115,7 +114,7 @@
 
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Results</h4>
-                        <a href="https://www.thebluealliance.com/event/2026mdpas" target="_blank"
+                        <a href="https://www.thebluealliance.com/event/2026mdsev" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
                             View on TBA <i class="fas fa-external-link-alt ms-1"></i>
@@ -161,7 +160,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tba-matches-body">
-                                <tr><td colspan="7" class="text-white-50 text-center">Loading...</td></tr>
+                                <tr><td colspan="8" class="text-white-50 text-center">Loading...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -224,11 +223,12 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         const TBA_KEY = 'ZniXUCSAN2pPd9VhUm2ze7aA0p3zN6J3Au5SnGZh4UZ8krkYCgROLmuDeAFFe2lB';
-        const EVENT_KEY = '2026mdpas';
+        const EVENT_KEY = '2026mdsev';
         const TBA_BASE = 'https://www.thebluealliance.com/api/v3';
         const TEAM_KEY = 'frc3748';
 
@@ -251,6 +251,12 @@
             return `<strong>${score}</strong>`;
         }
 
+        function matchTime(match) {
+            const ts = match.actual_time || match.predicted_time || match.time;
+            if (!ts) return '<span class="text-white-50">—</span>';
+            return new Date(ts * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
+
         function matchResult(match) {
             const r = match.alliances.red, b = match.alliances.blue;
             const inRed  = r.team_keys.includes(TEAM_KEY);
@@ -261,19 +267,17 @@
             const pending = ourScore < 0;
             let resultClass = 'text-white-50', resultLabel = 'Pending';
             if (!pending) {
-                if (ourScore > theirScore)       { resultClass = 'text-success'; resultLabel = 'Win'; }
-                else if (ourScore < theirScore)  { resultClass = 'text-danger';  resultLabel = 'Loss'; }
-                else                             { resultClass = 'text-warning'; resultLabel = 'Tie'; }
+                if (ourScore > theirScore)      { resultClass = 'text-success'; resultLabel = 'Win'; }
+                else if (ourScore < theirScore) { resultClass = 'text-danger';  resultLabel = 'Loss'; }
+                else                            { resultClass = 'text-warning'; resultLabel = 'Tie'; }
             }
             const compLevel = { qm:'Qual', qf:'QF', sf:'SF', f:'Final' }[match.comp_level] || match.comp_level;
             const matchNum  = match.comp_level === 'qm' ? `${compLevel} ${match.match_number}` : `${compLevel} M${match.match_number}`;
             const ourColor  = inRed ? 'danger' : 'primary';
             const allies    = (inRed ? r : b).team_keys.filter(k => k !== TEAM_KEY).map(k => k.replace('frc', '')).join(', ');
             const opponents = (inRed ? b : r).team_keys.map(k => k.replace('frc', '')).join(', ');
-            const ts = match.actual_time || match.predicted_time || match.time;
-            const timeStr = ts ? new Date(ts * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }) : '—';
             return `<tr>
-                <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${timeStr}</td>
+                <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${matchTime(match)}</td>
                 <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
                 <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
                 <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
@@ -291,7 +295,6 @@
                     tbaFetch(`/event/${EVENT_KEY}/matches`)
                 ]);
 
-                // Team names — cached in localStorage for 24 hours
                 const TEAMS_CACHE_KEY = `tba_teams_${EVENT_KEY}`;
                 const TEAMS_CACHE_TTL = 24 * 60 * 60 * 1000;
                 let teamNames = {};
@@ -306,7 +309,6 @@
                     }
                 } catch (e) { /* proceed without names */ }
 
-                // Our ranking
                 const rankRow = rankings?.rankings?.find(r => r.team_key === TEAM_KEY);
                 if (rankRow) {
                     const total = rankings.rankings.length;
@@ -317,7 +319,6 @@
                     document.getElementById('tba-rp').textContent = rankRow.extra_stats?.[0] ?? '—';
                 }
 
-                // Matches
                 matches.sort((a, b) => {
                     const order = ['qm','qf','sf','f'];
                     const lo = order.indexOf(a.comp_level) - order.indexOf(b.comp_level);
@@ -325,9 +326,8 @@
                 });
                 const rows = matches.map(matchResult).filter(Boolean).join('');
                 document.getElementById('tba-matches-body').innerHTML =
-                    rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
+                    rows || '<tr><td colspan="8" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
 
-                // All team rankings
                 const rankingsRows = (rankings?.rankings || []).map(r => {
                     const teamNum  = r.team_key.replace('frc', '');
                     const teamName = teamNames[r.team_key] || '';
@@ -336,16 +336,14 @@
                     const teamLabel = isOurs
                         ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${teamNum}</span>`
                         : teamNum;
-                    const rec      = r.record;
-                    const avgScore = r.sort_orders?.[0] != null ? r.sort_orders[0].toFixed(1) : '—';
-                    const rp       = r.extra_stats?.[0] ?? '—';
+                    const rec = r.record;
                     return `<tr style="${rowStyle}">
                         <td>${rankBadge(r.rank)}</td>
                         <td>${teamLabel}</td>
                         <td class="text-white-50" style="font-size:.8rem;">${teamName}</td>
                         <td class="text-white-50">${rec.wins}–${rec.losses}–${rec.ties}</td>
-                        <td class="text-white-50">${rp}</td>
-                        <td class="text-white-50">${avgScore}</td>
+                        <td class="text-white-50">${r.extra_stats?.[0] ?? '—'}</td>
+                        <td class="text-white-50">${r.sort_orders?.[0]?.toFixed(1) ?? '—'}</td>
                     </tr>`;
                 }).join('');
                 document.getElementById('tba-rankings-body').innerHTML =
@@ -354,7 +352,7 @@
                 document.getElementById('tba-section').style.display = '';
             } catch (e) {
                 document.getElementById('tba-section').innerHTML =
-                    `<div class="alert alert-danger">Could not load event data: ${e.message}</div>`;
+                    `<div class="alert alert-danger m-3">Could not load event data: ${e.message}</div>`;
                 document.getElementById('tba-section').style.display = '';
             }
         }
