@@ -230,7 +230,7 @@
                         <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Data</h4>
 
                         <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
-                            <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">5:00</span>
+                            <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">0:30</span>
                         </span>
                         <a href="https://www.thebluealliance.com/event/2026mdsev" target="_blank"
                            class="ms-auto text-decoration-none"
@@ -342,7 +342,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.30</small>
+                <small class="text-white">v1.0.31</small>
             </div>
         </div>
     </footer>
@@ -430,16 +430,28 @@
                 return;
             }
             try {
-                const [eventInfo, rankings, matches, teams] = await Promise.all([
+                const [eventInfo, rankings, matches] = await Promise.all([
                     tbaFetch(`/event/${EVENT_KEY}/simple`),
                     tbaFetch(`/event/${EVENT_KEY}/rankings`),
-                    tbaFetch(`/event/${EVENT_KEY}/matches`),
-                    tbaFetch(`/event/${EVENT_KEY}/teams/simple`)
+                    tbaFetch(`/event/${EVENT_KEY}/matches`)
                 ]);
 
-                // Build team number → nickname lookup
-                const teamNames = {};
-                (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
+                // Build team nickname lookup — cached in localStorage for 24 hours
+                const TEAMS_CACHE_KEY = `tba_teams_${EVENT_KEY}`;
+                const TEAMS_CACHE_TTL = 24 * 60 * 60 * 1000;
+                let teamNames = {};
+                try {
+                    const cached = JSON.parse(localStorage.getItem(TEAMS_CACHE_KEY));
+                    if (cached && (Date.now() - cached.timestamp) < TEAMS_CACHE_TTL) {
+                        teamNames = cached.data;
+                    } else {
+                        const teams = await tbaFetch(`/event/${EVENT_KEY}/teams/simple`);
+                        (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
+                        localStorage.setItem(TEAMS_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: teamNames }));
+                    }
+                } catch (e) {
+                    // localStorage unavailable or fetch failed — proceed without names
+                }
 
                 // Event header elements removed
 
@@ -501,7 +513,7 @@
             }
         }
 
-        const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+        const REFRESH_INTERVAL_MS = 30 * 1000;
         let countdownSeconds = REFRESH_INTERVAL_MS / 1000;
 
         function updateCountdown() {
