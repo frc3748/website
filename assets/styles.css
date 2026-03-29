@@ -834,3 +834,29 @@ button:disabled {
 .ticker-wrapper:hover .ticker-content {
     animation-play-state: paused;
 }
+
+/* Nested dropdown submenu */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: none;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu > a::after {
+    display: inline-block;
+    margin-left: .5em;
+    vertical-align: middle;
+    content: "\203a";
+    border: none;
+    font-size: 1rem;
+    line-height: 1;
+}

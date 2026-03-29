@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GL9Y0DFJPE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,7 +21,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Stream | Team 3748 Ragnarok Robotics</title>
+    <title>Pasadena Results | Team 3748 Ragnarok Robotics</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
@@ -31,81 +30,6 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-
-    <style>
-        .livestream-section {
-            background-color: #111;
-            padding: 2rem 0 3rem;
-        }
-
-        .stream-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            border: 2px solid var(--ragnarok-gold, #c8a84b);
-            border-radius: 6px;
-            box-shadow: 0 0 30px rgba(200, 168, 75, 0.25);
-        }
-
-        .stream-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .live-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: #c00;
-            color: #fff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 0.25rem 0.6rem;
-            border-radius: 3px;
-            vertical-align: middle;
-        }
-
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background: #fff;
-            border-radius: 50%;
-            animation: pulse 1.2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        .stream-meta {
-            border-top: 1px solid #333;
-            padding-top: 1rem;
-            margin-top: 1rem;
-        }
-
-        .watch-on-yt {
-            color: var(--ragnarok-gold, #c8a84b);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .watch-on-yt:hover {
-            color: #fff;
-        }
-
-        .watch-on-yt i {
-            color: #ff0000;
-        }
-    </style>
 </head>
 
 <body>
@@ -115,15 +39,12 @@
                 <img src="assets/logo.png" alt="Ragnarok Robotics Logo" onerror="this.style.display='none'">
                 <span class="viking-font ms-2">Team 3748</span>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
@@ -132,14 +53,13 @@
                             <li><a class="dropdown-item" href="first-inspires.html">FIRST Inspires</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
+                        <a class="nav-link dropdown-toggle active" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonsDropdown">
                             <li><h6 class="dropdown-header">2026 RebuilT</h6></li>
                             <li><a class="dropdown-item" href="2026-game.html">Season Overview</a></li>
                             <li><a class="dropdown-item" href="2026-district-rankings.html">District Rankings</a></li>
-                            <li><a class="dropdown-item" href="2026-pasadena-results.html">Pasadena Results</a></li>
+                            <li><a class="dropdown-item active" href="2026-pasadena-results.html">Pasadena Results</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
                             <li><a class="dropdown-item" href="2025-game.html">2025 Season</a></li>
@@ -148,7 +68,6 @@
                             <li><a class="dropdown-item" href="2024-game.html">2024 Season</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sponsorship</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sponsorDropdown">
@@ -156,7 +75,6 @@
                             <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship Opportunities</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="galleriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Galleries</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="galleriesDropdown">
@@ -171,7 +89,6 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link no-wrap" href="contact-us.html">Contact Us</a></li>
-
                     <li class="nav-item ms-lg-3">
                         <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-VAR125" target="_blank" class="btn btn-norse w-100">DONATE</a>
                     </li>
@@ -183,49 +100,12 @@
         </div>
     </nav>
 
-    <div style="background:#1a1a1a; border-bottom:1px solid #333; padding:.6rem 0;">
-        <div class="container text-center">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Severn+Run+High+School,+Severn,+MD+21144" target="_blank" class="btn btn-norse btn-sm">
-                <i class="fas fa-map-marker-alt me-2"></i>Get Directions to the Venue — Severn Run High School, Severn, MD
-            </a>
-        </div>
-    </div>
-
     <header class="main-hero">
         <div class="container">
-            <h1 class="display-3 mb-2">Live Stream <span class="live-badge"><span class="live-dot"></span>Live</span></h1>
-            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">Watch Team 3748 Ragnarok Robotics in action.</p>
+            <h1 class="display-3 mb-2" style="white-space:nowrap;">Pasadena Results</h1>
+            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">2026 FCH District Pasadena MD Event — March 13–15, 2026</p>
         </div>
     </header>
-
-    <section class="livestream-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-xl-10">
-
-                    <div class="stream-container">
-                        <iframe
-                            src="https://www.youtube.com/embed/Ucmj3UHluWo?autoplay=1&mute=1&rel=0&vq=hd1080"
-                            title="Team 3748 Ragnarok Robotics Live Stream"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
-                    <div class="stream-meta d-flex justify-content-between align-items-center flex-wrap gap-2">
-                        <p class="text-white-50 mb-0" style="font-size: 0.9rem;">
-                            <i class="fas fa-info-circle me-1"></i>
-                            If the stream hasn't started yet, the player will show when it goes live.
-                        </p>
-                        <a href="https://www.youtube.com/watch?v=Ucmj3UHluWo" target="_blank" class="watch-on-yt">
-                            <i class="fab fa-youtube me-1"></i> Watch on YouTube
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Blue Alliance Event Data -->
     <section id="tba-section" style="background:#0d0d0d; padding:2rem 0 3rem; display:none;">
@@ -234,23 +114,19 @@
                 <div class="col-12 col-xl-10">
 
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Data</h4>
-
-                        <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
-                            <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">0:30</span>
-                        </span>
-                        <a href="https://www.thebluealliance.com/event/2026mdsev" target="_blank"
+                        <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Results</h4>
+                        <a href="https://www.thebluealliance.com/event/2026mdpas" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
                             View on TBA <i class="fas fa-external-link-alt ms-1"></i>
                         </a>
                     </div>
 
-                    <!-- Ranking card -->
+                    <!-- Ranking cards -->
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
                             <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
-                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Ranking</div>
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Final Ranking</div>
                                 <div id="tba-rank" style="font-size:1.4rem;">—</div>
                             </div>
                         </div>
@@ -290,7 +166,7 @@
                         </table>
                     </div>
 
-                    <!-- All Teams Rankings table -->
+                    <!-- Event Rankings table -->
                     <h6 class="text-uppercase text-white-50 mb-2 mt-4" style="letter-spacing:1px;">Event Rankings</h6>
                     <div class="table-responsive">
                         <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
@@ -305,7 +181,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tba-rankings-body">
-                                <tr><td colspan="5" class="text-white-50 text-center">Loading...</td></tr>
+                                <tr><td colspan="6" class="text-white-50 text-center">Loading...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -325,14 +201,10 @@
                         </div>
                         <div>
                             <h5 class="text-uppercase fw-bold mb-1">Mt. Hebron High School</h5>
-                            <p class="text-white-50 mb-0">
-                                9440 Old Frederick Rd,<br>
-                                Ellicott City, MD 21042
-                            </p>
+                            <p class="text-white-50 mb-0">9440 Old Frederick Rd,<br>Ellicott City, MD 21042</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 text-md-end">
                     <h5 class="text-uppercase fw-bold">Contact Us</h5>
                     <p class="mb-3">
@@ -345,7 +217,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
@@ -353,16 +224,11 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // -------------------------------------------------------
-        // Blue Alliance API key — generate yours at:
-        // https://www.thebluealliance.com/account
-        // -------------------------------------------------------
         const TBA_KEY = 'ZniXUCSAN2pPd9VhUm2ze7aA0p3zN6J3Au5SnGZh4UZ8krkYCgROLmuDeAFFe2lB';
-        const EVENT_KEY = '2026mdsev';
+        const EVENT_KEY = '2026mdpas';
         const TBA_BASE = 'https://www.thebluealliance.com/api/v3';
         const TEAM_KEY = 'frc3748';
 
@@ -390,60 +256,42 @@
             const inRed  = r.team_keys.includes(TEAM_KEY);
             const inBlue = b.team_keys.includes(TEAM_KEY);
             if (!inRed && !inBlue) return '';
-
             const ourScore   = inRed ? r.score : b.score;
             const theirScore = inRed ? b.score : r.score;
             const pending = ourScore < 0;
-
-            let resultClass = 'text-white-50';
-            let resultLabel = 'Pending';
+            let resultClass = 'text-white-50', resultLabel = 'Pending';
             if (!pending) {
-                if (ourScore > theirScore)  { resultClass = 'text-success'; resultLabel = 'Win'; }
-                else if (ourScore < theirScore) { resultClass = 'text-danger'; resultLabel = 'Loss'; }
-                else { resultClass = 'text-warning'; resultLabel = 'Tie'; }
+                if (ourScore > theirScore)       { resultClass = 'text-success'; resultLabel = 'Win'; }
+                else if (ourScore < theirScore)  { resultClass = 'text-danger';  resultLabel = 'Loss'; }
+                else                             { resultClass = 'text-warning'; resultLabel = 'Tie'; }
             }
-
             const compLevel = { qm:'Qual', qf:'QF', sf:'SF', f:'Final' }[match.comp_level] || match.comp_level;
             const matchNum  = match.comp_level === 'qm' ? `${compLevel} ${match.match_number}` : `${compLevel} M${match.match_number}`;
             const ourColor  = inRed ? 'danger' : 'primary';
             const allies    = (inRed ? r : b).team_keys.filter(k => k !== TEAM_KEY).map(k => k.replace('frc', '')).join(', ');
             const opponents = (inRed ? b : r).team_keys.map(k => k.replace('frc', '')).join(', ');
-
-            return `
-                <tr>
-                    <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${matchTime(match)}</td>
-                    <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
-                    <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
-                    <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
-                    <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
-                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(ourScore)}</td>
-                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(theirScore)}</td>
-                    <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
-                </tr>`;
-        }
-
-        function matchTime(match) {
             const ts = match.actual_time || match.predicted_time || match.time;
-            if (!ts) return '<span class="text-white-50">—</span>';
-            const d = new Date(ts * 1000);
-            return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            const timeStr = ts ? new Date(ts * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }) : '—';
+            return `<tr>
+                <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${timeStr}</td>
+                <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
+                <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
+                <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
+                <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
+                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(ourScore)}</td>
+                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(theirScore)}</td>
+                <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
+            </tr>`;
         }
 
         async function loadTBA() {
-            countdownSeconds = REFRESH_INTERVAL_MS / 1000;
-            if (TBA_KEY === 'YOUR_TBA_API_KEY_HERE') {
-                document.getElementById('tba-section').innerHTML =
-                    `<div class="alert alert-warning">Add your TBA API key to <code>livestream.html</code> to show live event data.</div>`;
-                return;
-            }
             try {
-                const [eventInfo, rankings, matches] = await Promise.all([
-                    tbaFetch(`/event/${EVENT_KEY}/simple`),
+                const [rankings, matches] = await Promise.all([
                     tbaFetch(`/event/${EVENT_KEY}/rankings`),
                     tbaFetch(`/event/${EVENT_KEY}/matches`)
                 ]);
 
-                // Build team nickname lookup — cached in localStorage for 24 hours
+                // Team names — cached in localStorage for 24 hours
                 const TEAMS_CACHE_KEY = `tba_teams_${EVENT_KEY}`;
                 const TEAMS_CACHE_TTL = 24 * 60 * 60 * 1000;
                 let teamNames = {};
@@ -456,13 +304,9 @@
                         (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
                         localStorage.setItem(TEAMS_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: teamNames }));
                     }
-                } catch (e) {
-                    // localStorage unavailable or fetch failed — proceed without names
-                }
+                } catch (e) { /* proceed without names */ }
 
-                // Event header elements removed
-
-                // Rankings
+                // Our ranking
                 const rankRow = rankings?.rankings?.find(r => r.team_key === TEAM_KEY);
                 if (rankRow) {
                     const total = rankings.rankings.length;
@@ -471,36 +315,30 @@
                     document.getElementById('tba-record').textContent =
                         `${rankRow.record.wins}W – ${rankRow.record.losses}L – ${rankRow.record.ties}T`;
                     document.getElementById('tba-rp').textContent = rankRow.extra_stats?.[0] ?? '—';
-                } else {
-                    document.getElementById('tba-rank').textContent = '—';
-                    document.getElementById('tba-record').textContent = '—';
-                    document.getElementById('tba-rp').textContent = '—';
                 }
 
-                // Matches — sort by time, then build rows
+                // Matches
                 matches.sort((a, b) => {
                     const order = ['qm','qf','sf','f'];
                     const lo = order.indexOf(a.comp_level) - order.indexOf(b.comp_level);
-                    if (lo !== 0) return lo;
-                    return (a.match_number || 0) - (b.match_number || 0);
+                    return lo !== 0 ? lo : (a.match_number || 0) - (b.match_number || 0);
                 });
                 const rows = matches.map(matchResult).filter(Boolean).join('');
-                const tbody = document.getElementById('tba-matches-body');
-                tbody.innerHTML = rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
+                document.getElementById('tba-matches-body').innerHTML =
+                    rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
 
-                // All teams rankings
-                const allRankings = rankings?.rankings || [];
-                const rankingsRows = allRankings.map(r => {
-                    const teamNum = r.team_key.replace('frc', '');
+                // All team rankings
+                const rankingsRows = (rankings?.rankings || []).map(r => {
+                    const teamNum  = r.team_key.replace('frc', '');
                     const teamName = teamNames[r.team_key] || '';
-                    const isOurs = r.team_key === TEAM_KEY;
+                    const isOurs   = r.team_key === TEAM_KEY;
                     const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
                     const teamLabel = isOurs
                         ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${teamNum}</span>`
                         : teamNum;
-                    const rec = r.record;
+                    const rec      = r.record;
                     const avgScore = r.sort_orders?.[0] != null ? r.sort_orders[0].toFixed(1) : '—';
-                    const rp = r.extra_stats?.[0] ?? '—';
+                    const rp       = r.extra_stats?.[0] ?? '—';
                     return `<tr style="${rowStyle}">
                         <td>${rankBadge(r.rank)}</td>
                         <td>${teamLabel}</td>
@@ -511,31 +349,17 @@
                     </tr>`;
                 }).join('');
                 document.getElementById('tba-rankings-body').innerHTML =
-                    rankingsRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available yet.</td></tr>';
+                    rankingsRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available.</td></tr>';
 
                 document.getElementById('tba-section').style.display = '';
             } catch (e) {
                 document.getElementById('tba-section').innerHTML =
                     `<div class="alert alert-danger">Could not load event data: ${e.message}</div>`;
+                document.getElementById('tba-section').style.display = '';
             }
         }
 
-        const REFRESH_INTERVAL_MS = 30 * 1000;
-        let countdownSeconds = REFRESH_INTERVAL_MS / 1000;
-
-        function updateCountdown() {
-            countdownSeconds--;
-            if (countdownSeconds < 0) countdownSeconds = REFRESH_INTERVAL_MS / 1000;
-            const m = Math.floor(countdownSeconds / 60);
-            const s = countdownSeconds % 60;
-            const el = document.getElementById('tba-countdown-seconds');
-            if (el) el.textContent = `${m}:${String(s).padStart(2, '0')}`;
-        }
-
         loadTBA();
-        setInterval(loadTBA, REFRESH_INTERVAL_MS);
-        setInterval(updateCountdown, 1000);
     </script>
 </body>
-
 </html>
