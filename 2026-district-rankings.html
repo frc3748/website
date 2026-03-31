@@ -118,7 +118,7 @@
                         <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
                             <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">5:00</span>
                         </span>
-                        <a href="https://www.thebluealliance.com/events/fch/2026#rankings" target="_blank"
+                        <a href="https://www.firstchesapeake.org/frc/frc-championship-26" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
                             View on TBA <i class="fas fa-external-link-alt ms-1"></i>
@@ -208,27 +208,18 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.37</small>
+                <small class="text-white">v1.0.38</small>
             </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const TBA_KEY = 'ZniXUCSAN2pPd9VhUm2ze7aA0p3zN6J3Au5SnGZh4UZ8krkYCgROLmuDeAFFe2lB';
-        const DISTRICT_KEY = '2026fch';
-        const TBA_BASE = 'https://www.thebluealliance.com/api/v3';
-        const TEAM_KEY = 'frc3748';
+        const PROXY_URL     = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-first-proxy';
+        const DISTRICT_CODE = 'FCH';
+        const TEAM_NUM      = 3748;
         const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
         let countdownSeconds = REFRESH_INTERVAL_MS / 1000;
-
-        async function tbaFetch(path) {
-            const res = await fetch(`${TBA_BASE}${path}`, {
-                headers: { 'X-TBA-Auth-Key': TBA_KEY }
-            });
-            if (!res.ok) throw new Error(`TBA ${res.status}`);
-            return res.json();
-        }
 
         function rankBadge(rank) {
             if (rank === 1) return '<span class="badge" style="background:#c8a84b;color:#000;">🏆 #1</span>';
@@ -248,66 +239,41 @@
         async function loadRankings() {
             countdownSeconds = REFRESH_INTERVAL_MS / 1000;
             try {
-                const [rankings, advancement] = await Promise.all([
-                    tbaFetch(`/district/${DISTRICT_KEY}/rankings`),
-                    tbaFetch(`/district/${DISTRICT_KEY}/advancement`).catch(() => ({}))
-                ]);
+                const res  = await fetch(`${PROXY_URL}?districtCode=${DISTRICT_CODE}`);
+                if (!res.ok) throw new Error(`Proxy ${res.status}`);
+                const data = await res.json();
 
-                // Team names — cached in localStorage for 24 hours
-                const CACHE_KEY = `tba_district_teams_${DISTRICT_KEY}`;
-                const CACHE_TTL = 24 * 60 * 60 * 1000;
-                let teamNames = {};
-                try {
-                    const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
-                    if (cached && (Date.now() - cached.timestamp) < CACHE_TTL) {
-                        teamNames = cached.data;
-                    } else {
-                        const teams = await tbaFetch(`/district/${DISTRICT_KEY}/teams/simple`);
-                        (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
-                        localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: teamNames }));
-                    }
-                } catch (e) { /* proceed without names */ }
+                const our   = data.ourRanking;
+                const total = data.totalTeams;
 
-                const ourEntry = (rankings || []).find(r => r.team_key === TEAM_KEY);
-                const total = (rankings || []).length;
-
-                // Qualification thresholds — official_advancement_counts for 2026fch
-                const DCMP_SLOTS = 54;
-                const CMP_SLOTS  = 19;
-
-                if (ourEntry) {
+                if (our) {
                     document.getElementById('our-rank').innerHTML =
-                        `${rankBadge(ourEntry.rank)} <span class="text-white-50 ms-1" style="font-size:.9rem;">of ${total}</span>`;
-                    document.getElementById('our-points').textContent = ourEntry.point_total ?? '—';
+                        `${rankBadge(our.rank)} <span class="text-white-50 ms-1" style="font-size:.9rem;">of ${total}</span>`;
+                    document.getElementById('our-points').textContent = our.totalPoints;
 
-                    const qualDcmp = advancement[TEAM_KEY]?.dcmp ?? false;
-                    const qualCmp  = advancement[TEAM_KEY]?.cmp  ?? false;
-                    document.getElementById('our-dcmp').textContent = qualDcmp ? '✅ Yes' : '⬜ No';
-                    document.getElementById('our-dcmp').style.color = qualDcmp ? '#4caf50' : '#aaa';
-                    document.getElementById('our-cmp').textContent  = qualCmp  ? '✅ Yes' : '⬜ No';
-                    document.getElementById('our-cmp').style.color  = qualCmp  ? '#4caf50' : '#aaa';
+                    const dcmp = our.qualifiedDistrictCmp;
+                    const cmp  = our.qualifiedFirstCmp;
+                    document.getElementById('our-dcmp').textContent = dcmp ? '✅ Yes' : '⬜ No';
+                    document.getElementById('our-dcmp').style.color = dcmp ? '#4caf50' : '#aaa';
+                    document.getElementById('our-cmp').textContent  = cmp  ? '✅ Yes' : '⬜ No';
+                    document.getElementById('our-cmp').style.color  = cmp  ? '#4caf50' : '#aaa';
                 }
 
-                const rows = (rankings || []).map(r => {
-                    const teamNum   = r.team_key.replace('frc', '');
-                    const teamName  = teamNames[r.team_key] || '';
-                    const isOurs    = r.team_key === TEAM_KEY;
+                const rows = (data.rankings || []).map(r => {
+                    const isOurs    = r.teamNumber === TEAM_NUM;
                     const rowStyle  = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
                     const teamLabel = isOurs
-                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${teamNum}</span>`
-                        : teamNum;
-                    const qualDcmp = advancement[r.team_key]?.dcmp ?? false;
-                    const qualCmp  = advancement[r.team_key]?.cmp  ?? false;
-                    const dcmp = qualDcmp ? '✅' : '⬜';
-                    const cmp  = qualCmp  ? '✅' : '⬜';
-                    const evts = (r.event_points || []).slice().sort((a, b) => a.event_key.localeCompare(b.event_key));
-                    const evt1 = evts[0] ? `<span title="${evts[0].event_key}">${evts[0].total}</span>` : '—';
-                    const evt2 = evts[1] ? `<span title="${evts[1].event_key}">${evts[1].total}</span>` : '—';
+                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${r.teamNumber}</span>`
+                        : r.teamNumber;
+                    const evt1 = r.event1Code ? `<span title="${r.event1Code}">${r.event1Points}</span>` : '—';
+                    const evt2 = r.event2Code ? `<span title="${r.event2Code}">${r.event2Points}</span>` : '—';
+                    const dcmp = r.qualifiedDistrictCmp ? '✅' : '⬜';
+                    const cmp  = r.qualifiedFirstCmp    ? '✅' : '⬜';
                     return `<tr style="${rowStyle}">
                         <td>${rankBadge(r.rank)}</td>
                         <td>${teamLabel}</td>
-                        <td class="text-white-50" style="font-size:.8rem;">${teamName}</td>
-                        <td class="text-white fw-semibold">${r.point_total ?? '—'}</td>
+                        <td class="text-white-50" style="font-size:.8rem;">${r.teamName}</td>
+                        <td class="text-white fw-semibold">${r.totalPoints}</td>
                         <td class="text-white-50" style="text-align:center;">${evt1}</td>
                         <td class="text-white-50" style="text-align:center;">${evt2}</td>
                         <td style="text-align:center;">${dcmp}</td>
