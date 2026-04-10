@@ -62,9 +62,15 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
                             <li><a class="dropdown-item" href="2025-game.html">Season Overview</a></li>
+                            <li><a class="dropdown-item" href="2025-severn-results.html">Severn Results</a></li>
+                            <li><a class="dropdown-item" href="2025-alexandria-results.html">Alexandria Results</a></li>
+                            <li><a class="dropdown-item" href="2025-dcmp-results.html">District Championship</a></li>
+                            <li><a class="dropdown-item" href="2025-worlds-results.html">FIRST Championship</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">2024 Crescendo</h6></li>
                             <li><a class="dropdown-item" href="2024-game.html">Season Overview</a></li>
+                            <li><a class="dropdown-item" href="2024-severn-results.html">Severn Results</a></li>
+                            <li><a class="dropdown-item" href="2024-owings-mills-results.html">Owings Mills Results</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -106,11 +112,18 @@
         </div>
     </header>
 
-    <!-- Blue Alliance Event Data -->
-    <section id="tba-section" style="background:#0d0d0d; padding:2rem 0 3rem; display:none;">
+    <!-- Event Data -->
+    <section id="results-section" style="background:#0d0d0d; padding:2rem 0 3rem;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-10">
+
+                    <!-- Award callout -->
+                    <div class="p-3 rounded mb-4" style="background:rgba(200,168,75,0.12); border:1px solid var(--ragnarok-gold,#c8a84b);">
+                        <i class="fas fa-award me-2" style="color:var(--ragnarok-gold,#c8a84b);"></i>
+                        <strong style="color:var(--ragnarok-gold,#c8a84b);">Innovation in Control Award</strong>
+                        <span class="text-white-50 ms-2">Team 3748 received the Innovation in Control Award sponsored by nVent at this event.</span>
+                    </div>
 
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Results</h4>
@@ -121,35 +134,34 @@
                         </a>
                     </div>
 
-                    <!-- Ranking cards -->
+                    <!-- Summary cards -->
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
                             <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
-                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Final Ranking</div>
-                                <div id="tba-rank" style="font-size:1.4rem;">—</div>
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Qual Ranking</div>
+                                <div class="fw-bold" style="color:var(--ragnarok-gold,#c8a84b); font-size:1.4rem;">3 <span class="text-white-50" style="font-size:1rem;">of 35</span></div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
-                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Record</div>
-                                <div id="tba-record" class="text-white fw-bold" style="font-size:1.4rem;">—</div>
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Qual Record</div>
+                                <div class="text-white fw-bold" style="font-size:1.4rem;">10W &#8211; 2L &#8211; 0T</div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
-                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Ranking Points</div>
-                                <div id="tba-rp" class="text-white fw-bold" style="font-size:1.4rem;">—</div>
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Alliance Selection</div>
+                                <div class="text-white fw-bold" style="font-size:1.4rem;">Captain, Alliance 2</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Match table -->
-                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Team 3748 Matches</h6>
-                    <div class="table-responsive">
+                    <!-- Qualification Matches -->
+                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Qualification Matches</h6>
+                    <div class="table-responsive mb-4">
                         <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
                             <thead>
                                 <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
-                                    <th>Time</th>
                                     <th>Match</th>
                                     <th>Alliance</th>
                                     <th>Partners</th>
@@ -159,36 +171,55 @@
                                     <th>Result</th>
                                 </tr>
                             </thead>
-                            <tbody id="tba-matches-body">
-                                <tr><td colspan="8" class="text-white-50 text-center">Loading...</td></tr>
+                            <tbody>
+                                <tr><td class="text-white-50">Qual 6</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">2912, 1418</td><td class="text-white-50">339, 10679, 1446</td><td><strong>199</strong></td><td>58</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 12</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">1719, 11318</td><td class="text-white-50">1446, 4505, 2912</td><td><strong>156</strong></td><td>37</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 17</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">2377, 1446</td><td class="text-white-50">686, 7770, 2199</td><td><strong>167</strong></td><td>264</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 21</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">623, 2534</td><td class="text-white-50">11318, 1446, 4541</td><td><strong>191</strong></td><td>153</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 25</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">8622, 3714</td><td class="text-white-50">1727, 6863, 1389</td><td><strong>205</strong></td><td>103</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 30</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">2914, 10449</td><td class="text-white-50">11211, 614, 4505</td><td><strong>127</strong></td><td>183</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 41</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">7770, 836</td><td class="text-white-50">623, 2912, 1629</td><td><strong>312</strong></td><td>119</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 47</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">4505, 1727</td><td class="text-white-50">1418, 6863, 1111</td><td><strong>266</strong></td><td>100</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 50</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">2849, 2199</td><td class="text-white-50">2377, 2914, 1418</td><td><strong>215</strong></td><td>114</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 54</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">8592, 1111</td><td class="text-white-50">8622, 1915, 1719</td><td><strong>167</strong></td><td>38</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 61</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">8726, 686</td><td class="text-white-50">11350, 2914, 11318</td><td><strong>161</strong></td><td>54</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 68</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">4541, 11211</td><td class="text-white-50">3714, 623, 339</td><td><strong>209</strong></td><td>104</td><td><span class="text-success fw-bold">Win</span></td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- Event Rankings table -->
-                    <h6 class="text-uppercase text-white-50 mb-2 mt-4" style="letter-spacing:1px;">Event Rankings</h6>
+                    <!-- Playoff Matches -->
+                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Playoff Matches</h6>
                     <div class="table-responsive">
                         <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
                             <thead>
                                 <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>Name</th>
-                                    <th>W&nbsp;–&nbsp;L&nbsp;–&nbsp;T</th>
-                                    <th>RP</th>
-                                    <th>Avg Score</th>
+                                    <th>Match</th>
+                                    <th>Alliance</th>
+                                    <th>Partners</th>
+                                    <th>vs</th>
+                                    <th>Our Score</th>
+                                    <th>Opp Score</th>
+                                    <th>Result</th>
                                 </tr>
                             </thead>
-                            <tbody id="tba-rankings-body">
-                                <tr><td colspan="6" class="text-white-50 text-center">Loading...</td></tr>
+                            <tbody>
+                                <tr><td class="text-white-50">Match 3 (R1)</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">11350, 686</td><td class="text-white-50">Alliance 7 (6863, 623, 8622)</td><td><strong>297</strong></td><td>142</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Match 8 (R2)</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">11350, 686</td><td class="text-white-50">Alliance 3 (10679, 1727, 614)</td><td><strong>182</strong></td><td>273</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Match 10 (R3)</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">11350, 686</td><td class="text-white-50">Alliance 4 (8726, 4541, 8592)</td><td><strong>174</strong></td><td>210</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="mt-3 p-3 rounded" style="background:#1a1a1a; border:1px solid #444;">
+                        <small class="text-white-50"><i class="fas fa-info-circle me-2" style="color:var(--ragnarok-gold,#c8a84b);"></i>District Points Earned: <strong class="text-white">40</strong> (Qual: 20 &middot; Alliance: 15 &middot; Playoff: 0 &middot; Award: 5) &nbsp;|&nbsp; Season Total: <strong class="text-white">59 pts</strong> &middot; Rank #44 of 140 in FIRST Chesapeake &middot; Qualified for District Championship</small>
                     </div>
 
                 </div>
             </div>
         </div>
     </section>
+
 
     <footer id="contact">
         <div class="container">
@@ -219,108 +250,12 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.55</small>
+                <small class="text-white">v1.0.56</small>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        const PROXY_URL  = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-first-proxy';
-        const EVENT_CODE = 'MDSEV';
-        const TEAM_NUM   = 3748;
-
-        function rankBadge(rank) {
-            if (rank === 1) return '<span class="badge" style="background:#c8a84b;color:#000;">🏆 #1</span>';
-            if (rank <= 3) return `<span class="badge bg-secondary">#${rank}</span>`;
-            return `<span class="badge bg-dark border border-secondary">#${rank}</span>`;
-        }
-
-        function scoreCell(score) {
-            if (score === null || score === undefined || score < 0) return '<span class="text-white-50">—</span>';
-            return `<strong>${score}</strong>`;
-        }
-
-        function matchRow(m) {
-            if (!m.ourAlliance) return '';
-            const pending     = m.ourScore < 0;
-            const inRed       = m.ourAlliance === 'Red';
-            const ourColor    = inRed ? 'danger' : 'primary';
-            const allies      = m.allies.map(t => t.teamNumber).join(', ');
-            const opponents   = m.opponents.map(t => t.teamNumber).join(', ');
-            const levelLabel  = m.tournamentLevel === 'Qualification' ? 'Qual' : m.tournamentLevel === 'Playoff' ? 'Playoff' : m.tournamentLevel;
-            const matchLabel  = `${levelLabel} ${m.matchNumber}`;
-            const timeStr     = m.startTime
-                ? new Date(m.startTime).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
-                : '—';
-            let resultClass = 'text-white-50', resultLabel = 'Pending';
-            if (!pending) {
-                if (m.ourScore > m.oppScore)      { resultClass = 'text-success'; resultLabel = 'Win'; }
-                else if (m.ourScore < m.oppScore) { resultClass = 'text-danger';  resultLabel = 'Loss'; }
-                else                              { resultClass = 'text-warning'; resultLabel = 'Tie'; }
-            }
-            return `<tr>
-                <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${timeStr}</td>
-                <td class="text-white-50" style="white-space:nowrap;">${matchLabel}</td>
-                <td><span class="badge bg-${ourColor}">${m.ourAlliance}</span></td>
-                <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
-                <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
-                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(m.ourScore)}</td>
-                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(m.oppScore)}</td>
-                <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
-            </tr>`;
-        }
-
-        async function loadData() {
-            try {
-                const res  = await fetch(`${PROXY_URL}?eventCode=${EVENT_CODE}`);
-                if (!res.ok) throw new Error(`Proxy ${res.status}`);
-                const data = await res.json();
-
-                // Our ranking cards
-                const our = data.ourRanking;
-                if (our) {
-                    document.getElementById('tba-rank').innerHTML =
-                        `${rankBadge(our.rank)} <span class="text-white-50 ms-1">of ${data.totalTeams}</span>`;
-                    document.getElementById('tba-record').textContent =
-                        `${our.wins}W – ${our.losses}L – ${our.ties}T`;
-                    document.getElementById('tba-rp').textContent = our.rankingPoints.toFixed(2);
-                }
-
-                // Our matches
-                const matchRows = (data.matches || []).map(matchRow).filter(Boolean).join('');
-                document.getElementById('tba-matches-body').innerHTML =
-                    matchRows || '<tr><td colspan="8" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
-
-                // All rankings
-                const rankRows = (data.rankings || []).map(r => {
-                    const isOurs   = r.teamNumber === TEAM_NUM;
-                    const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
-                    const teamLabel = isOurs
-                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${r.teamNumber}</span>`
-                        : r.teamNumber;
-                    return `<tr style="${rowStyle}">
-                        <td>${rankBadge(r.rank)}</td>
-                        <td>${teamLabel}</td>
-                        <td class="text-white-50" style="font-size:.8rem;">${r.teamName}</td>
-                        <td class="text-white-50">${r.wins}–${r.losses}–${r.ties}</td>
-                        <td class="text-white-50">${r.rankingPoints.toFixed(2)}</td>
-                        <td class="text-white-50">${r.qualAverage.toFixed(1)}</td>
-                    </tr>`;
-                }).join('');
-                document.getElementById('tba-rankings-body').innerHTML =
-                    rankRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available.</td></tr>';
-
-                document.getElementById('tba-section').style.display = '';
-            } catch (e) {
-                document.getElementById('tba-section').innerHTML =
-                    `<div class="alert alert-danger m-3">Could not load event data: ${e.message}</div>`;
-                document.getElementById('tba-section').style.display = '';
-            }
-        }
-
-        loadData();
-    </script>
 </body>
 </html>

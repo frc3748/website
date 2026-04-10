@@ -14,20 +14,26 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `about.html` | Team history and mission |
 | `team-members.html` | Roster |
 | `first-inspires.html` | About the FIRST Inspires program |
-| `2024-game.html` | 2024 FRC season recap |
-| `2025-game.html` | 2025 FRC season recap |
-| `2026-game.html` | 2026 FRC season + live results |
-| `2026-district-rankings.html` | 2026 FCH district rankings |
+| `2026-game.html` | 2026 FRC season overview |
+| `2026-district-rankings.html` | 2026 FCH district rankings (live) |
 | `2026-pasadena-results.html` | 2026 Pasadena event results |
-| `2026-severn-results.html` | 2026 Severn event results |
-| `gallery-2025-battle-of-baltimore.html` | 2025 Battle of Baltimore gallery |
-| `gallery-2025-season.html` | 2025 season gallery |
+| `2026-severn-results.html` | 2026 Severn Run event results |
+| `2025-game.html` | 2025 FRC season overview |
+| `2025-severn-results.html` | 2025 CHS District Severn event results |
+| `2025-alexandria-results.html` | 2025 CHS District Alexandria VA event results |
+| `2025-dcmp-results.html` | 2025 FIRST Chesapeake District Championship results |
+| `2025-worlds-results.html` | 2025 FIRST Championship (Milstein Division) results |
+| `2024-game.html` | 2024 FRC season overview |
+| `2024-severn-results.html` | 2024 CHS District Severn event results |
+| `2024-owings-mills-results.html` | 2024 CHS District Owings Mills event results |
 | `gallery-2026-season.html` | 2026 season gallery |
 | `gallery-2026-dcmp.html` | 2026 FCH District Championship gallery |
 | `gallery-2026-pasadena-competition.html` | 2026 Pasadena competition gallery |
 | `gallery-2026-severn-competition.html` | 2026 Severn competition gallery |
 | `gallery-2026-homecoming-parade.html` | 2026 Homecoming parade gallery |
 | `gallery-stjohnslane-stem-night.html` | St. John's Lane STEM night gallery |
+| `gallery-2025-season.html` | 2025 season gallery |
+| `gallery-2025-battle-of-baltimore.html` | 2025 Battle of Baltimore gallery |
 | `livestream.html` | Competition livestream + live rankings |
 | `2026-dcmp-trip.html` | FCH District Championship trip logistics (password-protected) |
 | `sponsors.html` | Current sponsors |
@@ -67,4 +73,4 @@ npx serve .
 
 ## Versioning
 
-All pages carry a shared version string in the footer (currently `v1.0.55`). Version bumps are applied site-wide across all HTML files at once.
+All pages carry a shared version string in the footer (currently `v1.0.56`). Version bumps are applied site-wide across all HTML files at once.

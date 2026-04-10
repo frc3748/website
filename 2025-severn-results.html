@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-GL9Y0DFJPE');
     </script>
 
@@ -16,13 +15,13 @@
         posthog.init('phc_wJi8g0MuuEUg1bifQw6wfPsVhRCd9dKdzjUw3xl9uZJ', {
             api_host: 'https://us.i.posthog.com',
             defaults: '2025-11-30',
-            person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+            person_profiles: 'identified_only',
         })
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIRST Inspires | Team 3748 Ragnarok Robotics</title>
+    <title>2025 Severn Results | Team 3748 Ragnarok Robotics</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
@@ -31,72 +30,31 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-
-    <style>
-        /* Specific page styling for the progression steps */
-        .progression-card {
-            background-color: #212121;
-            border: 2px solid #444;
-            border-radius: 8px;
-            padding: 30px;
-            height: 100%;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .progression-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--ragnarok-gold);
-            box-shadow: 0 10px 20px rgba(234, 173, 31, 0.2);
-        }
-
-        .level-badge {
-            background-color: var(--primary-red);
-            color: white;
-            font-family: 'Viking-Normal', sans-serif;
-            padding: 5px 15px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .active-level {
-            border: 2px solid var(--ragnarok-gold);
-            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-            box-shadow: 0 0 15px rgba(234, 173, 31, 0.15);
-        }
-    </style>
 </head>
 
-<body>
+<body style="background-color:#0d0d0d;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container d-flex justify-content-center align-items-center">
             <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
                 <img src="assets/logo.png" alt="Ragnarok Robotics Logo" onerror="this.style.display='none'">
                 <span class="viking-font ms-2">Team 3748</span>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
                             <li><a class="dropdown-item" href="about.html">Our Legacy</a></li>
                             <li><a class="dropdown-item" href="team-members.html">Meet the Team</a></li>
-                            <li><a class="dropdown-item active" href="first-inspires.html">FIRST Inspires</a></li>
+                            <li><a class="dropdown-item" href="first-inspires.html">FIRST Inspires</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
+                        <a class="nav-link dropdown-toggle active" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonsDropdown">
                             <li><h6 class="dropdown-header">2026 RebuilT</h6></li>
                             <li><a class="dropdown-item" href="2026-game.html">Season Overview</a></li>
@@ -106,7 +64,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
                             <li><a class="dropdown-item" href="2025-game.html">Season Overview</a></li>
-                            <li><a class="dropdown-item" href="2025-severn-results.html">Severn Results</a></li>
+                            <li><a class="dropdown-item active" href="2025-severn-results.html">Severn Results</a></li>
                             <li><a class="dropdown-item" href="2025-alexandria-results.html">Alexandria Results</a></li>
                             <li><a class="dropdown-item" href="2025-dcmp-results.html">District Championship</a></li>
                             <li><a class="dropdown-item" href="2025-worlds-results.html">FIRST Championship</a></li>
@@ -117,18 +75,13 @@
                             <li><a class="dropdown-item" href="2024-owings-mills-results.html">Owings Mills Results</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sponsorship
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sponsorship</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sponsorDropdown">
                             <li><a class="dropdown-item" href="sponsors.html">Sponsors</a></li>
-                            <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship
-                                    Opportunitiess</a></li>
+                            <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship Opportunities</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="galleriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Galleries</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="galleriesDropdown">
@@ -146,11 +99,9 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link no-wrap" href="contact-us.html">Contact Us</a></li>
-
                     <li class="nav-item ms-lg-3">
                         <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-VAR125" target="_blank" class="btn btn-norse w-100">DONATE</a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -158,89 +109,106 @@
 
     <header class="main-hero">
         <div class="container">
-            <h1 class="display-3 mb-2">FIRST Inspires</h1>
-            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">More Than Robots</p>
+            <h1 class="display-3 mb-2" style="white-space:nowrap;">Severn Results</h1>
+            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">2025 CHS District Severn MD Event — March 14–16, 2025</p>
         </div>
     </header>
 
-    <section class="container py-5">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <img src="assets/first-logo.png" alt="FIRST Logo" class="mb-4" style="max-height: 120px; width: auto; display: block; margin: 0 auto;">
+    <!-- Event Data -->
+    <section id="results-section" style="background:#0d0d0d; padding:2rem 0 3rem;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-10">
 
-                <h2 class="team-title mb-4" style="color: #212121;">What is FIRST?</h2>
-                <p class="lead text-muted">
-                    FIRST (For Inspiration and Recognition of Science and Technology) is a global non-profit organization founded by Dean Kamen in 1989. Its mission is to prepare young people for the future through a suite of inclusive, team-based robotics programs for ages 4-18.
-                </p>
-                <p class="text-muted">
-                    Beyond building machines, FIRST emphasizes core values such as <strong>Gracious Professionalism</strong> and <strong>Coopertition</strong>, teaching students that they can compete fiercely while treating one another with respect and kindness.
-                </p>
-            </div>
-        </div>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <h4 class="text-uppercase fw-bold mb-0" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Event Results</h4>
+                        <a href="https://www.thebluealliance.com/event/2025mdsev" target="_blank"
+                           class="ms-auto text-decoration-none"
+                           style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
+                            View on TBA <i class="fas fa-external-link-alt ms-1"></i>
+                        </a>
+                    </div>
 
-        <div class="row g-4 align-items-stretch">
-            <div class="col-12 text-center mb-3">
-                <h2 class="team-title" style="color: var(--primary-red);">The Levels of FIRST</h2>
-                <hr style="width: 100px; margin: 10px auto; border-top: 3px solid var(--ragnarok-gold); opacity: 1;">
-            </div>
+                    <!-- Summary cards -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Qual Ranking</div>
+                                <div class="fw-bold" style="color:var(--ragnarok-gold,#c8a84b); font-size:1.4rem;">8 <span class="text-white-50" style="font-size:1rem;">of 28</span></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Qual Record</div>
+                                <div class="text-white fw-bold" style="font-size:1.4rem;">6W – 6L – 0T</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="p-3 rounded" style="background:#1a1a1a; border:1px solid #333;">
+                                <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;">Alliance Selection</div>
+                                <div class="text-white fw-bold" style="font-size:1.4rem;">Captain, Alliance 6</div>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col-md-4">
-                <div class="progression-card text-center text-white">
-                    <div class="level-badge">Ages 4-16</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST LEGO League</h3>
-                    <h5 class="text-white-50 mb-4">(FLL)</h5>
-                    <p>
-                        The entry point into the FIRST progression. FLL utilizes LEGO® bricks and technology to introduce students to STEM concepts through fun, hands-on learning.
-                    </p>
-                    <ul class="text-start text-white-50 small mt-3">
-                        <li><strong>Discover (PreK-1):</strong> playful intro to STEM.</li>
-                        <li><strong>Explore (Grades 2-4):</strong> focuses on engineering fundamentals.</li>
-                        <li><strong>Challenge (Grades 4-8):</strong> teams build autonomous robots to score points on a thematic playing field.</li>
-                    </ul>
-                </div>
-            </div>
+                    <!-- Qualification Matches -->
+                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Qualification Matches</h6>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                            <thead>
+                                <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Match</th>
+                                    <th>Alliance</th>
+                                    <th>Partners</th>
+                                    <th>Opponents</th>
+                                    <th>Our Score</th>
+                                    <th>Opp Score</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="text-white-50">Qual 5</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">2537, 9709</td><td class="text-white-50">4541, 7886, 888</td><td><strong>84</strong></td><td>89</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 8</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">4541, 339</td><td class="text-white-50">1727, 1885, 3793</td><td><strong>111</strong></td><td>129</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 12</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">623, 2106</td><td class="text-white-50">1811, 4464, 10679</td><td><strong>68</strong></td><td>40</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 17</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">10224, 10449</td><td class="text-white-50">3793, 888, 2537</td><td><strong>74</strong></td><td>78</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 20</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">1885, 10679</td><td class="text-white-50">1811, 10449, 9403</td><td><strong>63</strong></td><td>39</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 27</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">7886, 1811</td><td class="text-white-50">449, 9709, 339</td><td><strong>79</strong></td><td>87</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 30</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">888, 5587</td><td class="text-white-50">8622, 9709, 3714</td><td><strong>101</strong></td><td>35</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 34</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">2421, 449</td><td class="text-white-50">888, 10224, 7770</td><td><strong>128</strong></td><td>109</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 42</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">2199, 2377</td><td class="text-white-50">7770, 1885, 1111</td><td><strong>124</strong></td><td>85</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 46</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">3793, 8622</td><td class="text-white-50">1811, 7770, 4541</td><td><strong>82</strong></td><td>80</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Qual 50</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">4464, 3714</td><td class="text-white-50">10224, 9403, 4541</td><td><strong>70</strong></td><td>74</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Qual 53</td><td><span class="badge bg-danger">Red</span></td><td class="text-white-50">404, 9403</td><td class="text-white-50">2199, 449, 7886</td><td><strong>103</strong></td><td>134</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <div class="col-md-4">
-                <div class="progression-card text-center text-white">
-                    <div class="level-badge">Grades 7-12</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Tech Challenge</h3>
-                    <h5 class="text-white-50 mb-4">(FTC)</h5>
-                    <p>
-                        Teams design, build, and program robots to compete in an alliance format against other teams.
-                    </p>
-                    <ul class="text-start text-white-50 small mt-3">
-                        <li><strong>The Robot:</strong> Roughly 18" x 18", built from reusable kits of parts and custom materials.</li>
-                        <li><strong>The Game:</strong> Played on a 12' x 12' field in a 2 vs 2 alliance format.</li>
-                        <li><strong>Focus:</strong> Developing technical skills, engineering innovation, and community outreach.</li>
-                    </ul>
-                </div>
-            </div>
+                    <!-- Playoff Matches -->
+                    <h6 class="text-uppercase text-white-50 mb-2" style="letter-spacing:1px;">Playoff Matches</h6>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                            <thead>
+                                <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Match</th>
+                                    <th>Alliance</th>
+                                    <th>vs</th>
+                                    <th>Our Score</th>
+                                    <th>Opp Score</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="text-white-50">Match 4 (R1)</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">Alliance 3 (1885, 2377, 4541)</td><td><strong>75</strong></td><td>95</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                                <tr><td class="text-white-50">Match 6 (R2)</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">Alliance 7 (2421, 7886, 7770)</td><td><strong>92</strong></td><td>49</td><td><span class="text-success fw-bold">Win</span></td></tr>
+                                <tr><td class="text-white-50">Match 9 (R3)</td><td><span class="badge bg-primary">Blue</span></td><td class="text-white-50">Alliance 4 (2199, 8622, 1111)</td><td><strong>67</strong></td><td>104</td><td><span class="text-danger fw-bold">Loss</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <div class="col-md-4">
-                <div class="progression-card active-level text-center text-white position-relative">
-                    <div class="position-absolute top-0 start-50 translate-middle badge bg-warning text-dark border border-dark rounded-pill" style="font-family:'Roboto'; font-weight:bold;">WE ARE HERE</div>
-                    <div class="level-badge mt-3">Grades 9-12</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Robotics Competition</h3>
-                    <h5 class="text-white-50 mb-4">(FRC)</h5>
-                    <p>
-                        Considered the "ultimate Sport for the Mind," FRC combines the excitement of sport with the rigors of science and technology.
-                    </p>
-                    <ul class="text-start text-white-50 small mt-3">
-                        <li><strong>The Robot:</strong> Industrial-sized robots weighing up to ~125 lbs.</li>
-                        <li><strong>The Game:</strong> Complex field games played by 3-team alliances.</li>
-                        <li><strong>The Experience:</strong> Under strict rules and limited resources, students are challenged to raise funds, design a team "brand," and build a robot.</li>
-                    </ul>
-                    <a href="about.html" class="btn btn-outline-warning btn-sm mt-3">See Our Legacy</a>
-                </div>
-            </div>
-        </div>
+                    <div class="mt-3 p-3 rounded" style="background:#1a1a1a; border:1px solid #444;">
+                        <small class="text-white-50"><i class="fas fa-info-circle me-2" style="color:var(--ragnarok-gold,#c8a84b);"></i>District Points Earned: <strong class="text-white">27</strong> (Qual: 16 · Alliance: 11 · Playoff: 0)</small>
+                    </div>
 
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <div class="info-box shadow-sm">
-                    <h3 class="team-title mb-3" style="color: #212121;">Why Join?</h3>
-                    <p class="mb-4">FIRST participants are significantly more likely to pursue Engineering and CS majors in college. It provides access to millions of dollars in scholarships and creates a network of professionals and mentors.</p>
-                    <a href="https://www.firstinspires.org/" target="_blank" class="btn btn-norse">Visit Official FIRST Website</a>
                 </div>
             </div>
         </div>
@@ -256,14 +224,10 @@
                         </div>
                         <div>
                             <h5 class="text-uppercase fw-bold mb-1">Mt. Hebron High School</h5>
-                            <p class="text-white-50 mb-0">
-                                9440 Old Frederick Rd,<br>
-                                Ellicott City, MD 21042
-                            </p>
+                            <p class="text-white-50 mb-0">9440 Old Frederick Rd,<br>Ellicott City, MD 21042</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 text-md-end">
                     <h5 class="text-uppercase fw-bold">Contact Us</h5>
                     <p class="mb-3">
@@ -276,7 +240,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
