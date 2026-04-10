@@ -234,10 +234,10 @@
                         <span id="tba-countdown" class="text-white-50" style="font-size:.8rem;">
                             <i class="fas fa-sync-alt me-1"></i>Refreshing in <span id="tba-countdown-seconds">0:30</span>
                         </span>
-                        <a href="https://www.thebluealliance.com/event/2026chcmp" target="_blank"
+                        <a href="https://frc-events.firstinspires.org/2026/CHCMP" target="_blank"
                            class="ms-auto text-decoration-none"
                            style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
-                            View on TBA <i class="fas fa-external-link-alt ms-1"></i>
+                            View on FIRST <i class="fas fa-external-link-alt ms-1"></i>
                         </a>
                     </div>
 
@@ -261,6 +261,26 @@
                                 <div id="tba-rp" class="text-white fw-bold" style="font-size:1.4rem;">—</div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Practice match table -->
+                    <h6 class="text-uppercase text-white-50 mb-2" id="practice-matches-heading" style="letter-spacing:1px; display:none;">Practice Matches</h6>
+                    <div class="table-responsive mb-4" id="practice-matches-container" style="display:none;">
+                        <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                            <thead>
+                                <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                    <th>Time</th>
+                                    <th>Match</th>
+                                    <th>Alliance</th>
+                                    <th>Partners</th>
+                                    <th>Opponents</th>
+                                    <th>Our Score</th>
+                                    <th>Opp Score</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tba-practice-body"></tbody>
+                        </table>
                     </div>
 
                     <!-- Match table -->
@@ -344,7 +364,7 @@
             <div class="border-top border-secondary pt-2 text-center">
                 <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
                 <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.52</small>
+                <small class="text-white">v1.0.53</small>
             </div>
         </div>
     </footer>
@@ -352,22 +372,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // -------------------------------------------------------
-        // Blue Alliance API key — generate yours at:
-        // https://www.thebluealliance.com/account
-        // -------------------------------------------------------
-        const TBA_KEY = 'ZniXUCSAN2pPd9VhUm2ze7aA0p3zN6J3Au5SnGZh4UZ8krkYCgROLmuDeAFFe2lB';
-        const EVENT_KEY = '2026chcmp';
-        const TBA_BASE = 'https://www.thebluealliance.com/api/v3';
-        const TEAM_KEY = 'frc3748';
-
-        async function tbaFetch(path) {
-            const res = await fetch(`${TBA_BASE}${path}`, {
-                headers: { 'X-TBA-Auth-Key': TBA_KEY }
-            });
-            if (!res.ok) throw new Error(`TBA ${res.status}`);
-            return res.json();
-        }
+        const PROXY_URL  = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-first-proxy';
+        const EVENT_CODE = 'CHCMP';
+        const TEAM_NUM   = 3748;
 
         function rankBadge(rank) {
             if (rank === 1) return '<span class="badge" style="background:#c8a84b;color:#000;">🏆 #1</span>';
@@ -380,139 +387,37 @@
             return `<strong>${score}</strong>`;
         }
 
-        function matchResult(match) {
-            const r = match.alliances.red, b = match.alliances.blue;
-            const inRed  = r.team_keys.includes(TEAM_KEY);
-            const inBlue = b.team_keys.includes(TEAM_KEY);
-            if (!inRed && !inBlue) return '';
-
-            const ourScore   = inRed ? r.score : b.score;
-            const theirScore = inRed ? b.score : r.score;
-            const pending = ourScore < 0;
-
-            let resultClass = 'text-white-50';
-            let resultLabel = 'Pending';
+        function matchRow(m) {
+            if (!m.ourAlliance) return '';
+            const pending    = m.ourScore < 0;
+            const inRed      = m.ourAlliance === 'Red';
+            const ourColor   = inRed ? 'danger' : 'primary';
+            const allies     = m.allies.map(t => t.teamNumber).join(', ');
+            const opponents  = m.opponents.map(t => t.teamNumber).join(', ');
+            const levelLabel = m.tournamentLevel === 'Qualification' ? 'Qual'
+                             : m.tournamentLevel === 'Playoff'       ? 'Playoff'
+                             : m.tournamentLevel === 'Practice'      ? 'Practice'
+                             : m.tournamentLevel;
+            const matchLabel = `${levelLabel} ${m.matchNumber}`;
+            const timeStr    = m.startTime
+                ? new Date(m.startTime).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
+                : '—';
+            let resultClass = 'text-white-50', resultLabel = 'Pending';
             if (!pending) {
-                if (ourScore > theirScore)  { resultClass = 'text-success'; resultLabel = 'Win'; }
-                else if (ourScore < theirScore) { resultClass = 'text-danger'; resultLabel = 'Loss'; }
-                else { resultClass = 'text-warning'; resultLabel = 'Tie'; }
+                if (m.ourScore > m.oppScore)      { resultClass = 'text-success'; resultLabel = 'Win'; }
+                else if (m.ourScore < m.oppScore) { resultClass = 'text-danger';  resultLabel = 'Loss'; }
+                else                              { resultClass = 'text-warning'; resultLabel = 'Tie'; }
             }
-
-            const compLevel = { qm:'Qual', qf:'QF', sf:'SF', f:'Final' }[match.comp_level] || match.comp_level;
-            const matchNum  = match.comp_level === 'qm' ? `${compLevel} ${match.match_number}` : `${compLevel} M${match.match_number}`;
-            const ourColor  = inRed ? 'danger' : 'primary';
-            const allies    = (inRed ? r : b).team_keys.filter(k => k !== TEAM_KEY).map(k => k.replace('frc', '')).join(', ');
-            const opponents = (inRed ? b : r).team_keys.map(k => k.replace('frc', '')).join(', ');
-
-            return `
-                <tr>
-                    <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${matchTime(match)}</td>
-                    <td class="text-white-50" style="white-space:nowrap;">${matchNum}</td>
-                    <td><span class="badge bg-${ourColor}">${inRed ? 'Red' : 'Blue'}</span></td>
-                    <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
-                    <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
-                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(ourScore)}</td>
-                    <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(theirScore)}</td>
-                    <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
-                </tr>`;
-        }
-
-        function matchTime(match) {
-            const ts = match.actual_time || match.predicted_time || match.time;
-            if (!ts) return '<span class="text-white-50">—</span>';
-            const d = new Date(ts * 1000);
-            return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-        }
-
-        async function loadTBA() {
-            countdownSeconds = REFRESH_INTERVAL_MS / 1000;
-            if (TBA_KEY === 'YOUR_TBA_API_KEY_HERE') {
-                document.getElementById('tba-section').innerHTML =
-                    `<div class="alert alert-warning">Add your TBA API key to <code>livestream.html</code> to show live event data.</div>`;
-                return;
-            }
-            try {
-                const [eventInfo, rankings, matches] = await Promise.all([
-                    tbaFetch(`/event/${EVENT_KEY}/simple`),
-                    tbaFetch(`/event/${EVENT_KEY}/rankings`),
-                    tbaFetch(`/event/${EVENT_KEY}/matches`)
-                ]);
-
-                // Build team nickname lookup — cached in localStorage for 24 hours
-                const TEAMS_CACHE_KEY = `tba_teams_${EVENT_KEY}`;
-                const TEAMS_CACHE_TTL = 24 * 60 * 60 * 1000;
-                let teamNames = {};
-                try {
-                    const cached = JSON.parse(localStorage.getItem(TEAMS_CACHE_KEY));
-                    if (cached && (Date.now() - cached.timestamp) < TEAMS_CACHE_TTL) {
-                        teamNames = cached.data;
-                    } else {
-                        const teams = await tbaFetch(`/event/${EVENT_KEY}/teams/simple`);
-                        (teams || []).forEach(t => { teamNames[t.key] = t.nickname || ''; });
-                        localStorage.setItem(TEAMS_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: teamNames }));
-                    }
-                } catch (e) {
-                    // localStorage unavailable or fetch failed — proceed without names
-                }
-
-                // Event header elements removed
-
-                // Rankings
-                const rankRow = rankings?.rankings?.find(r => r.team_key === TEAM_KEY);
-                if (rankRow) {
-                    const total = rankings.rankings.length;
-                    document.getElementById('tba-rank').innerHTML =
-                        `${rankBadge(rankRow.rank)} <span class="text-white-50 ms-1">of ${total}</span>`;
-                    document.getElementById('tba-record').textContent =
-                        `${rankRow.record.wins}W – ${rankRow.record.losses}L – ${rankRow.record.ties}T`;
-                    document.getElementById('tba-rp').textContent = rankRow.extra_stats?.[0] ?? '—';
-                } else {
-                    document.getElementById('tba-rank').textContent = '—';
-                    document.getElementById('tba-record').textContent = '—';
-                    document.getElementById('tba-rp').textContent = '—';
-                }
-
-                // Matches — sort by time, then build rows
-                matches.sort((a, b) => {
-                    const order = ['qm','qf','sf','f'];
-                    const lo = order.indexOf(a.comp_level) - order.indexOf(b.comp_level);
-                    if (lo !== 0) return lo;
-                    return (a.match_number || 0) - (b.match_number || 0);
-                });
-                const rows = matches.map(matchResult).filter(Boolean).join('');
-                const tbody = document.getElementById('tba-matches-body');
-                tbody.innerHTML = rows || '<tr><td colspan="7" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
-
-                // All teams rankings
-                const allRankings = rankings?.rankings || [];
-                const rankingsRows = allRankings.map(r => {
-                    const teamNum = r.team_key.replace('frc', '');
-                    const teamName = teamNames[r.team_key] || '';
-                    const isOurs = r.team_key === TEAM_KEY;
-                    const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
-                    const teamLabel = isOurs
-                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${teamNum}</span>`
-                        : teamNum;
-                    const rec = r.record;
-                    const avgScore = r.sort_orders?.[0] != null ? r.sort_orders[0].toFixed(1) : '—';
-                    const rp = r.extra_stats?.[0] ?? '—';
-                    return `<tr style="${rowStyle}">
-                        <td>${rankBadge(r.rank)}</td>
-                        <td>${teamLabel}</td>
-                        <td class="text-white-50" style="font-size:.8rem;">${teamName}</td>
-                        <td class="text-white-50">${rec.wins}–${rec.losses}–${rec.ties}</td>
-                        <td class="text-white-50">${rp}</td>
-                        <td class="text-white-50">${avgScore}</td>
-                    </tr>`;
-                }).join('');
-                document.getElementById('tba-rankings-body').innerHTML =
-                    rankingsRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available yet.</td></tr>';
-
-                document.getElementById('tba-section').style.display = '';
-            } catch (e) {
-                document.getElementById('tba-section').innerHTML =
-                    `<div class="alert alert-danger">Could not load event data: ${e.message}</div>`;
-            }
+            return `<tr>
+                <td class="text-white-50" style="white-space:nowrap;font-size:.8rem;">${timeStr}</td>
+                <td class="text-white-50" style="white-space:nowrap;">${matchLabel}</td>
+                <td><span class="badge bg-${ourColor}">${m.ourAlliance}</span></td>
+                <td class="text-white-50" style="font-size:.85rem;">${allies}</td>
+                <td class="text-white-50" style="font-size:.85rem;">${opponents}</td>
+                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(m.ourScore)}</td>
+                <td>${pending ? '<span class="text-white-50">—</span>' : scoreCell(m.oppScore)}</td>
+                <td><span class="${resultClass} fw-bold">${resultLabel}</span></td>
+            </tr>`;
         }
 
         const REFRESH_INTERVAL_MS = 30 * 1000;
@@ -527,8 +432,65 @@
             if (el) el.textContent = `${m}:${String(s).padStart(2, '0')}`;
         }
 
-        loadTBA();
-        setInterval(loadTBA, REFRESH_INTERVAL_MS);
+        async function loadData() {
+            countdownSeconds = REFRESH_INTERVAL_MS / 1000;
+            try {
+                const res  = await fetch(`${PROXY_URL}?eventCode=${EVENT_CODE}`);
+                if (!res.ok) throw new Error(`Proxy ${res.status}`);
+                const data = await res.json();
+
+                // Our ranking cards
+                const our = data.ourRanking;
+                if (our) {
+                    document.getElementById('tba-rank').innerHTML =
+                        `${rankBadge(our.rank)} <span class="text-white-50 ms-1">of ${data.totalTeams}</span>`;
+                    document.getElementById('tba-record').textContent =
+                        `${our.wins}W – ${our.losses}L – ${our.ties}T`;
+                    document.getElementById('tba-rp').textContent = our.rankingPoints.toFixed(2);
+                }
+
+                // Practice match table
+                const practiceRows = (data.practiceMatches || []).map(matchRow).filter(Boolean).join('');
+                if (practiceRows) {
+                    document.getElementById('practice-matches-heading').style.display = '';
+                    document.getElementById('practice-matches-container').style.display = '';
+                    document.getElementById('tba-practice-body').innerHTML = practiceRows;
+                }
+
+                // Qual/playoff match table
+                const matchRows = (data.matches || []).map(matchRow).filter(Boolean).join('');
+                document.getElementById('tba-matches-body').innerHTML =
+                    matchRows || '<tr><td colspan="8" class="text-white-50 text-center">No matches found for Team 3748.</td></tr>';
+
+                // All rankings table
+                const rankRows = (data.rankings || []).map(r => {
+                    const isOurs   = r.teamNumber === TEAM_NUM;
+                    const rowStyle = isOurs ? 'background:rgba(200,168,75,0.12); font-weight:600;' : '';
+                    const teamLabel = isOurs
+                        ? `<span style="color:var(--ragnarok-gold,#c8a84b);">&#9733; ${r.teamNumber}</span>`
+                        : r.teamNumber;
+                    return `<tr style="${rowStyle}">
+                        <td>${rankBadge(r.rank)}</td>
+                        <td>${teamLabel}</td>
+                        <td class="text-white-50" style="font-size:.8rem;">${r.teamName}</td>
+                        <td class="text-white-50">${r.wins}–${r.losses}–${r.ties}</td>
+                        <td class="text-white-50">${r.rankingPoints.toFixed(2)}</td>
+                        <td class="text-white-50">${r.qualAverage.toFixed(1)}</td>
+                    </tr>`;
+                }).join('');
+                document.getElementById('tba-rankings-body').innerHTML =
+                    rankRows || '<tr><td colspan="6" class="text-white-50 text-center">No rankings available yet.</td></tr>';
+
+                document.getElementById('tba-section').style.display = '';
+            } catch (e) {
+                document.getElementById('tba-section').innerHTML =
+                    `<div class="alert alert-danger m-3">Could not load event data: ${e.message}</div>`;
+                document.getElementById('tba-section').style.display = '';
+            }
+        }
+
+        loadData();
+        setInterval(loadData, REFRESH_INTERVAL_MS);
         setInterval(updateCountdown, 1000);
     </script>
 </body>
