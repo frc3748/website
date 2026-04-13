@@ -15,9 +15,10 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `team-members.html` | Roster |
 | `first-inspires.html` | About the FIRST Inspires program |
 | `2026-game.html` | 2026 FRC season overview |
-| `2026-district-rankings.html` | 2026 FCH district rankings (live) |
+| `2026-district-rankings.html` | 2026 FCH district rankings (live, with loading spinner) |
 | `2026-pasadena-results.html` | 2026 Pasadena event results |
 | `2026-severn-results.html` | 2026 Severn Run event results |
+| `2026-dcmp-results.html` | 2026 FIRST Chesapeake District Championship results |
 | `2025-game.html` | 2025 FRC season overview |
 | `2025-severn-results.html` | 2025 CHS District Severn event results |
 | `2025-alexandria-results.html` | 2025 CHS District Alexandria VA event results |
@@ -73,4 +74,4 @@ npx serve .
 
 ## Versioning
 
-All pages carry a shared version string in the footer (currently `v1.0.56`). Version bumps are applied site-wide across all HTML files at once.
+All pages carry a shared version string in the footer (currently `v1.0.57`). Version bumps are applied site-wide across all HTML files at once.
