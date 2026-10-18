@@ -20,124 +20,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>District Championship Trip | Team 3748 Ragnarok Robotics</title>
+    <meta name="description" content="Trip information for the 2026 FIRST Chesapeake District Championship.">
+    <meta name="robots" content="noindex">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Team 3748 Ragnarok Robotics">
+    <meta property="og:title" content="District Championship Trip | Team 3748 Ragnarok Robotics">
+    <meta property="og:description" content="Trip information for the 2026 FIRST Chesapeake District Championship.">
+    <meta property="og:url" content="https://ragnarokrobotics.org/2026-dcmp-trip.html">
+    <meta property="og:image" content="https://ragnarokrobotics.org/assets/2026-team.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/layout.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/viking-normal" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
-    <style>
-        #lodging-locked {
-            display: block;
-        }
-
-        #lodging-content {
-            display: none;
-        }
-
-        #auth-error {
-            color: #e74c3c;
-            font-size: .9rem;
-            min-height: 1.4rem;
-            margin-top: .5rem;
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container d-flex justify-content-center align-items-center">
-            <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
-                <img src="assets/logo.png" alt="Ragnarok Robotics Logo" onerror="this.style.display='none'">
-                <span class="viking-font ms-2">Team 3748</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="about.html">Our Legacy</a></li>
-                            <li><a class="dropdown-item" href="team-members.html">Meet the Team</a></li>
-                            <li><a class="dropdown-item" href="first-inspires.html">FIRST Inspires</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonsDropdown">
-                            <li>
-                                <h6 class="dropdown-header">2026 RebuilT</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="2026-game.html">Season Overview</a></li>
-                            <li><a class="dropdown-item" href="2026-district-rankings.html">District Rankings</a></li>
-                            <li><a class="dropdown-item" href="2026-pasadena-results.html">Pasadena Results</a></li>
-                            <li><a class="dropdown-item" href="2026-severn-results.html">Severn Run Results</a></li>
-                            <li><a class="dropdown-item" href="2026-dcmp-results.html">District Championship</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <h6 class="dropdown-header">2025 Reefscape</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="2025-game.html">Season Overview</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <h6 class="dropdown-header">2024 Crescendo</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="2024-game.html">Season Overview</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sponsorship</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sponsorDropdown">
-                            <li><a class="dropdown-item" href="sponsors.html">Sponsors</a></li>
-                            <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship Opportunities</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="galleriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Galleries</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="galleriesDropdown">
-                            <li>
-                                <h6 class="dropdown-header">2026 RebuilT</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="gallery-2026-season.html">Season Gallery</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-homecoming-parade.html">Homecoming Parade</a></li>
-                            <li><a class="dropdown-item" href="gallery-stjohnslane-stem-night.html">St. John's Lane STEM Night</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-pasadena-competition.html">Pasadena Competition</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-severn-competition.html">Severn Run Competition</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-dcmp.html">District Championship</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <h6 class="dropdown-header">2025 Reefscape</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="gallery-2025-season.html">Season Gallery</a></li>
-                            <li><a class="dropdown-item" href="gallery-2025-battle-of-baltimore.html">Battle of Baltimore</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link no-wrap" href="contact-us.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-VAR125" target="_blank" class="btn btn-norse w-100">DONATE</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <script>renderNav()</script>
 
     <header class="main-hero">
         <div class="container py-4">
             <h1 class="display-3 mb-2">DCMP Trip Info</h1>
-            <p class="text-white-50 mb-3" style="font-family: 'Cinzel Decorative', cursive;">FCH District Championship — April 9–12, 2026 · Virginia State University, Petersburg, VA</p>
-            <a href="https://www.firstchesapeake.org/frc/frc-championship-26" target="_blank" class="btn btn-norse btn-lg">
+            <p class="text-white-50 mb-3 tagline">FCH District Championship — April 9–12, 2026 · Virginia State University, Petersburg, VA</p>
+            <a href="https://www.firstchesapeake.org/frc/frc-championship-26" target="_blank" rel="noopener" class="btn btn-norse btn-lg">
                 <i class="fas fa-external-link-alt me-2"></i>View on FIRST Chesapeake
             </a>
         </div>
@@ -150,31 +61,31 @@
 
                     <!-- Event Details -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Event Details</h2>
+                        <h2 class="team-title mb-4 heading-gold">Event Details</h2>
                         <div class="row g-3 mb-4">
                             <div class="col-sm-6">
-                                <div class="p-3 rounded" style="background:#111; border:1px solid #333;">
-                                    <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;"><i class="fas fa-calendar-alt me-2"></i>Dates</div>
+                                <div class="p-3 rounded panel-darker">
+                                    <div class="text-white-50 text-uppercase mb-1 label-caps"><i class="fas fa-calendar-alt me-2"></i>Dates</div>
                                     <div class="text-white fw-semibold">April 9–12, 2026</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="p-3 rounded" style="background:#111; border:1px solid #333;">
-                                    <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;"><i class="fas fa-map-marker-alt me-2"></i>Venue</div>
+                                <div class="p-3 rounded panel-darker">
+                                    <div class="text-white-50 text-uppercase mb-1 label-caps"><i class="fas fa-map-marker-alt me-2"></i>Venue</div>
                                     <div class="text-white fw-semibold">VSU Multipurpose Center</div>
-                                    <div class="text-white-50" style="font-size:.85rem;">20809 2nd Ave, Petersburg, VA 23803</div>
+                                    <div class="text-white-50 fs-85">20809 2nd Ave, Petersburg, VA 23803</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="p-3 rounded" style="background:#111; border:1px solid #333;">
-                                    <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;"><i class="fas fa-external-link-alt me-2"></i>More Info</div>
-                                    <a href="https://www.firstchesapeake.org/frc/frc-championship-26" target="_blank" class="text-decoration-none" style="color:var(--ragnarok-gold,#c8a84b);">firstchesapeake.org</a>
+                                <div class="p-3 rounded panel-darker">
+                                    <div class="text-white-50 text-uppercase mb-1 label-caps"><i class="fas fa-external-link-alt me-2"></i>More Info</div>
+                                    <a href="https://www.firstchesapeake.org/frc/frc-championship-26" target="_blank" rel="noopener" class="text-decoration-none text-gold">firstchesapeake.org</a>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="p-3 rounded" style="background:#111; border:1px solid #333;">
-                                    <div class="text-white-50 text-uppercase mb-1" style="font-size:.75rem; letter-spacing:1px;"><i class="fas fa-map me-2"></i>Directions</div>
-                                    <a href="https://www.google.com/maps/dir/?api=1&destination=Virginia+State+University+Multipurpose+Center,+20809+2nd+Ave,+Petersburg,+VA+23803" target="_blank" class="text-decoration-none" style="color:var(--ragnarok-gold,#c8a84b);">Get Directions</a>
+                                <div class="p-3 rounded panel-darker">
+                                    <div class="text-white-50 text-uppercase mb-1 label-caps"><i class="fas fa-map me-2"></i>Directions</div>
+                                    <a href="https://www.google.com/maps/dir/?api=1&destination=Virginia+State+University+Multipurpose+Center,+20809+2nd+Ave,+Petersburg,+VA+23803" target="_blank" rel="noopener" class="text-decoration-none text-gold">Get Directions</a>
                                 </div>
                             </div>
                         </div>
@@ -182,34 +93,34 @@
 
                     <!-- General Info -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">General Information</h2>
+                        <h2 class="team-title mb-4 heading-gold">General Information</h2>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #6 (4/7)</h6>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #6 (4/7)</h6>
                         <p class="text-white-50">Well, we thought the arrangements were final last night. The hotel called this morning to let us know that they oversold the hotel and bumped our group. We are at a new hotel up the road. The room arrangements are the same. The new hotel is the Courtyard by Marriott in Chester, VA. Unfortunately, they do not have breakfast included so we will be providing a Continental breakfast of fruit, yogurt, and pastries in the lobby in the morning.</p>
                         <address class="text-white-50" style="font-style:normal;">
                             <strong class="text-white">Marriott by Courtyard Richmond Chester</strong><br>
                             2001 West Hundred Road<br>
                             Chester, VA 23836<br>
-                            <a href="tel:8044141010" style="color:var(--ragnarok-gold,#c8a84b);">804-414-1010</a><br>
-                            <a href="https://www.marriott.com/en-us/hotels/riccy-courtyard-richmond-chester" target="_blank" style="color:var(--ragnarok-gold,#c8a84b);">Marriott Hotel Page</a>
+                            <a class="text-gold" href="tel:8044141010">804-414-1010</a><br>
+                            <a class="text-gold" href="https://www.marriott.com/en-us/hotels/riccy-courtyard-richmond-chester" target="_blank" rel="noopener">Marriott Hotel Page</a>
                         </address>
                         <p class="text-white-50"><strong class="text-white">IMPORTANT:</strong> For the students traveling Friday morning with Mr. Howell, please meet at the high school at <strong class="text-white">5:30 AM</strong>.</p>
-                        <p class="text-white-50">As always if there are any questions feel free to contact me by email or cell, or any of the mentors at <a href="mailto:mthragnarok@gmail.com" style="color:var(--ragnarok-gold,#c8a84b);">mthragnarok@gmail.com</a>.</p>
+                        <p class="text-white-50">As always if there are any questions feel free to contact me by email or cell, or any of the mentors at <a class="text-gold" href="mailto:mthragnarok@gmail.com">mthragnarok@gmail.com</a>.</p>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #5 (4/7)</h6>
-                        <p class="text-white-50">Final arrangements have been made. The list of students that are attending, room assignments, and carpooling information is in the protected setion below, <a href="#transport-lodging" style="color:var(--ragnarok-gold,#c8a84b);">Transportation &amp; Lodging</a>. Your student will be coming home with permission slips and the daily schedule, please return them on Wednesday night at our last meeting. You can also print it here <a href="assets/robotics-district-field-trip-permission-slip.pdf" target="_blank" style="color:var(--ragnarok-gold,#c8a84b);">Field Trip Permission Slip</a>. The price is <strong class="text-white">$250/student</strong>. If the parents are securing their own hotel room and their student is staying with them, then the cost is <strong class="text-white">$125/student</strong>. You can pay by check made out to <strong class="text-white">Mt. Hebron High School</strong> (memo: Ragnarok Robotics) or by OSP.</p>
-                        <p class="text-white-50">Let us know if you have any questions. Ms. Ververs can be reached by email at <a href="mailto:trish.ververs@gmail.com" style="color:var(--ragnarok-gold,#c8a84b);">trish.ververs@gmail.com</a> or by phone at <strong class="text-white">443-534-3337</strong>. She will be in Petersburg starting on Friday morning.</p>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #5 (4/7)</h6>
+                        <p class="text-white-50">Final arrangements have been made. The list of students that are attending, room assignments, and carpooling information is in the protected setion below, <a class="text-gold" href="#transport-lodging">Transportation &amp; Lodging</a>. Your student will be coming home with permission slips and the daily schedule, please return them on Wednesday night at our last meeting. You can also print it here <a class="text-gold" href="assets/robotics-district-field-trip-permission-slip.pdf" target="_blank" rel="noopener">Field Trip Permission Slip</a>. The price is <strong class="text-white">$250/student</strong>. If the parents are securing their own hotel room and their student is staying with them, then the cost is <strong class="text-white">$125/student</strong>. You can pay by check made out to <strong class="text-white">Mt. Hebron High School</strong> (memo: Ragnarok Robotics) or by OSP.</p>
+                        <p class="text-white-50">Let us know if you have any questions. Ms. Ververs can be reached by email at <a class="text-gold" href="mailto:trish.ververs@gmail.com">trish.ververs@gmail.com</a> or by phone at <strong class="text-white">443-534-3337</strong>. She will be in Petersburg starting on Friday morning.</p>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #4 (4/6)</h6>
-                        <p class="text-white-50">The permission slip is now available. Please download, complete, and return it as soon as possible: <a href="assets/robotics-district-field-trip-permission-slip.pdf" target="_blank" style="color:var(--ragnarok-gold,#c8a84b);">Field Trip Permission Slip</a></p>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #4 (4/6)</h6>
+                        <p class="text-white-50">The permission slip is now available. Please download, complete, and return it as soon as possible: <a class="text-gold" href="assets/robotics-district-field-trip-permission-slip.pdf" target="_blank" rel="noopener">Field Trip Permission Slip</a></p>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #3 (4/6)</h6>
-                        <p class="text-white-50">Click here, <a href="#transport-lodging" style="color:var(--ragnarok-gold,#c8a84b);">Transportation &amp; Lodging</a>, to pay for the trip online. Please use the password that you received in a team email.</p>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #3 (4/6)</h6>
+                        <p class="text-white-50">Click here, <a class="text-gold" href="#transport-lodging">Transportation &amp; Lodging</a>, to pay for the trip online. Please use the password that you received in a team email.</p>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #2 (4/3)</h6>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #2 (4/3)</h6>
                         <p class="text-white-50">Final logistics are coming together. We have responses from 25 students with 17 attending so far. Final rooming and carpooling will be organized next. This will be the last large group email sent to everyone. The next email will only include those attending Districts.</p>
 
-                        <p class="text-white-50">Below is the list of attending students — see the <a href="#transport-lodging" style="color:var(--ragnarok-gold,#c8a84b);">Transportation &amp; Lodging</a> section. If there is a question mark under transportation, we don't know if you need a ride or you haven't been assigned a car. There are vehicles leaving Thursday afternoon, Friday early morning, and Friday after school. Please reply and let us know:</p>
+                        <p class="text-white-50">Below is the list of attending students — see the <a class="text-gold" href="#transport-lodging">Transportation &amp; Lodging</a> section. If there is a question mark under transportation, we don't know if you need a ride or you haven't been assigned a car. There are vehicles leaving Thursday afternoon, Friday early morning, and Friday after school. Please reply and let us know:</p>
                         <ul class="text-white-50 mb-3" style="font-size:.9rem; line-height:2;">
                             <li>If you still plan to go and are not on the list</li>
                             <li>If you need a ride</li>
@@ -217,10 +128,10 @@
                         </ul>
                         <p class="text-white-50">Most information will be posted on this website with a secure link for sensitive information such as names and rooming. We will post the permission forms and the OSP site for payment here.</p>
                         <p class="text-white-50">If you haven't already done so, please complete the survey if you are attending — it now has a question asking about transportation to Districts:
-                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=JuXsln2csEiNr4uTyQpdGFlsgSjNEztHloCxXvUpidVUQk1NWFFFMUVKUUtWSTFEOFlVNk0zTjk3Mi4u" target="_blank" style="color:var(--ragnarok-gold,#c8a84b);">Robotics District Championship 2026 — Fill out form</a>
+                            <a class="text-gold" href="https://forms.office.com/Pages/ResponsePage.aspx?id=JuXsln2csEiNr4uTyQpdGFlsgSjNEztHloCxXvUpidVUQk1NWFFFMUVKUUtWSTFEOFlVNk0zTjk3Mi4u" target="_blank" rel="noopener">Robotics District Championship 2026 — Fill out form</a>
                         </p>
 
-                        <h6 class="text-uppercase mb-3" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Update #1 (4/1)</h6>
+                        <h6 class="text-uppercase mb-3 text-gold ls-1">Update #1 (4/1)</h6>
                         <p class="text-white-50">As promised, we have been hard at work making the final plans for the District Championships. A few things have changed to accommodate a larger group based on the hotel availability. The cost of the trip will be <strong class="text-white">$250/student</strong>. This covers the hotel, all meals, and our teacher sponsors. If you plan to travel with your student and secure your own hotel or will be attending only a portion of the trip, just let us know so we can adjust costs.</p>
                         <p class="text-white-50">This can be paid by check to <strong class="text-white">Mt. Hebron High School</strong> with a note <em>"Ragnarok Robotics."</em> We are also looking to set up the OSP again for payment but will need to wait until school is back in session.</p>
                         <p class="text-white-50">If the cost of the trip is a financial burden, please contact Trish Ververs directly. We can help cover the trip out of this year's grant. We do not want the trip cost to be a deterrent to attending this important event.</p>
@@ -229,15 +140,15 @@
 
                     <!-- Hotel Information -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Hotel Information</h2>
-                        <div class="p-3 rounded mb-3" style="background:#111; border:1px solid #444;">
+                        <h2 class="team-title mb-4 heading-gold">Hotel Information</h2>
+                        <div class="p-3 rounded mb-3 panel-darker-alt">
                             <div class="text-white fw-semibold">
-                                <a href="https://www.marriott.com/en-us/hotels/riccy-courtyard-richmond-chester" target="_blank" style="color:var(--ragnarok-gold,#c8a84b);">Courtyard by Marriott Richmond Chester</a>
+                                <a class="text-gold" href="https://www.marriott.com/en-us/hotels/riccy-courtyard-richmond-chester" target="_blank" rel="noopener">Courtyard by Marriott Richmond Chester</a>
                             </div>
                             <div class="text-white-50">2001 West Hundred Road, Chester, VA 23836</div>
                             <div class="text-white-50">804-414-1010</div>
                             <div class="mt-2">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=Courtyard+by+Marriott+Richmond+Chester,+2001+West+Hundred+Road,+Chester,+VA+23836" target="_blank" style="color:var(--ragnarok-gold,#c8a84b); font-size:.85rem;">
+                                <a class="text-gold fs-85" href="https://www.google.com/maps/dir/?api=1&destination=Courtyard+by+Marriott+Richmond+Chester,+2001+West+Hundred+Road,+Chester,+VA+23836" target="_blank" rel="noopener">
                                     <i class="fas fa-map-marker-alt me-1"></i>Get Directions
                                 </a>
                             </div>
@@ -247,13 +158,13 @@
 
                     <!-- Meal Information -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Meal Information</h2>
+                        <h2 class="team-title mb-4 heading-gold">Meal Information</h2>
                         <p class="text-white-50">All meals during the tournament will be provided and are covered in the cost of the field trip. It is recommended that students and parents plan for meals before arriving and after leaving the event.</p>
                     </div>
 
                     <!-- What to Bring -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">What to Bring</h2>
+                        <h2 class="team-title mb-4 heading-gold">What to Bring</h2>
                         <ul class="text-white-50" style="font-size:1rem; line-height:2;">
                             <li>Team T-shirt</li>
                             <li>Water bottle</li>
@@ -265,170 +176,170 @@
 
                     <!-- Chaperones -->
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Chaperones</h2>
+                        <h2 class="team-title mb-4 heading-gold">Chaperones</h2>
                         <p class="text-white-50">During the field trip, the students will be supervised by two HCPSS chaperones: Joshua Ernst and Sharon Moore.</p>
                     </div>
 
                     <!-- Schedule -->
 
                     <div class="mb-5">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Schedule</h2>
+                        <h2 class="team-title mb-4 heading-gold">Schedule</h2>
 
                         <!-- Thursday -->
-                        <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Thursday, April 9th</h5>
-                        <table class="table table-dark table-sm mb-0" style="font-size:.9rem;">
+                        <h5 class="text-white mt-4 mb-3 subheading-gold">Thursday, April 9th</h5>
+                        <table class="table table-dark table-sm mb-0 fs-90">
                             <tbody>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">Departure</td>
+                                    <td class="text-nowrap text-gold col-label">Departure</td>
                                     <td class="text-white-50">Small group departing.</td>
                                 </tr>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">5:00 PM – 8:30 PM</td>
+                                    <td class="text-nowrap text-gold col-label">5:00 PM – 8:30 PM</td>
                                     <td class="text-white-50">Designated students arrive at Virginia State University Multipurpose Center. Robot inspection and calibration open.</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">8:30 PM – 9:00 PM</td>
+                                    <td class="text-gold">8:30 PM – 9:00 PM</td>
                                     <td class="text-white-50">Return to hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">9:00 PM – 10:30 PM</td>
+                                    <td class="text-gold">9:00 PM – 10:30 PM</td>
                                     <td class="text-white-50">Free time in hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">10:30 PM – 11:00 PM</td>
+                                    <td class="text-gold">10:30 PM – 11:00 PM</td>
                                     <td class="text-white-50">Bed time</td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <!-- Friday -->
-                        <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Friday, April 10th</h5>
-                        <table class="table table-dark table-sm mb-0" style="font-size:.9rem;">
+                        <h5 class="text-white mt-4 mb-3 subheading-gold">Friday, April 10th</h5>
+                        <table class="table table-dark table-sm mb-0 fs-90">
                             <tbody>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">Departure</td>
+                                    <td class="text-nowrap text-gold col-label">Departure</td>
                                     <td class="text-white-50">Carpools leaving ~5:30 AM. Details to follow.</td>
                                 </tr>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">8:00 AM – 9:00 AM</td>
+                                    <td class="text-nowrap text-gold col-label">8:00 AM – 9:00 AM</td>
                                     <td class="text-white-50">Remaining students arrive at Virginia State University Multipurpose Center</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">9:00 AM – 12:00 PM</td>
+                                    <td class="text-gold">9:00 AM – 12:00 PM</td>
                                     <td class="text-white-50">Calibration and Practice Matches</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">12:00 PM – 1:00 PM</td>
+                                    <td class="text-gold">12:00 PM – 1:00 PM</td>
                                     <td class="text-white-50">Lunch break</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">1:00 PM – 6:00 PM</td>
+                                    <td class="text-gold">1:00 PM – 6:00 PM</td>
                                     <td class="text-white-50">Qualification Matches</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">6:00 PM – 6:30 PM</td>
+                                    <td class="text-gold">6:00 PM – 6:30 PM</td>
                                     <td class="text-white-50">Robot repairs (as needed)</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">6:30 PM – 7:00 PM</td>
+                                    <td class="text-gold">6:30 PM – 7:00 PM</td>
                                     <td class="text-white-50">Return to hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">7:00 PM – 8:00 PM</td>
+                                    <td class="text-gold">7:00 PM – 8:00 PM</td>
                                     <td class="text-white-50">Dinner at mall adjacent to hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">8:00 PM – 10:30 PM</td>
+                                    <td class="text-gold">8:00 PM – 10:30 PM</td>
                                     <td class="text-white-50">Free time in hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">10:30 PM – 11:00 PM</td>
+                                    <td class="text-gold">10:30 PM – 11:00 PM</td>
                                     <td class="text-white-50">Bed time</td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <!-- Saturday -->
-                        <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Saturday, April 11th</h5>
-                        <table class="table table-dark table-sm mb-0" style="font-size:.9rem;">
+                        <h5 class="text-white mt-4 mb-3 subheading-gold">Saturday, April 11th</h5>
+                        <table class="table table-dark table-sm mb-0 fs-90">
                             <tbody>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">6:00 AM – 7:30 AM</td>
+                                    <td class="text-nowrap text-gold col-label">6:00 AM – 7:30 AM</td>
                                     <td class="text-white-50">Wake up, get ready, eat breakfast</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">7:30 AM – 8:00 AM</td>
+                                    <td class="text-gold">7:30 AM – 8:00 AM</td>
                                     <td class="text-white-50">Return to event center</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">8:00 AM – 9:30 AM</td>
+                                    <td class="text-gold">8:00 AM – 9:30 AM</td>
                                     <td class="text-white-50">Robot repairs/preparation</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">9:00 AM – 12:00 PM</td>
+                                    <td class="text-gold">9:00 AM – 12:00 PM</td>
                                     <td class="text-white-50">Opening ceremonies and qualification matches</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">12:00 PM – 1:00 PM</td>
+                                    <td class="text-gold">12:00 PM – 1:00 PM</td>
                                     <td class="text-white-50">Lunch break</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">1:00 PM – 6:00 PM</td>
+                                    <td class="text-gold">1:00 PM – 6:00 PM</td>
                                     <td class="text-white-50">Qualification matches</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">6:00 PM – 6:30 PM</td>
+                                    <td class="text-gold">6:00 PM – 6:30 PM</td>
                                     <td class="text-white-50">Robot repairs (as needed)</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">6:30 PM – 7:00 PM</td>
+                                    <td class="text-gold">6:30 PM – 7:00 PM</td>
                                     <td class="text-white-50">Return to hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">7:00 PM – 8:00 PM</td>
+                                    <td class="text-gold">7:00 PM – 8:00 PM</td>
                                     <td class="text-white-50">Dinner at mall adjacent to hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">8:00 PM – 10:30 PM</td>
+                                    <td class="text-gold">8:00 PM – 10:30 PM</td>
                                     <td class="text-white-50">Free time in hotel</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">10:30 PM – 11:00 PM</td>
+                                    <td class="text-gold">10:30 PM – 11:00 PM</td>
                                     <td class="text-white-50">Bed time</td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <!-- Sunday -->
-                        <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Sunday, April 12th</h5>
-                        <table class="table table-dark table-sm mb-0" style="font-size:.9rem;">
+                        <h5 class="text-white mt-4 mb-3 subheading-gold">Sunday, April 12th</h5>
+                        <table class="table table-dark table-sm mb-0 fs-90">
                             <tbody>
                                 <tr>
-                                    <td style="white-space:nowrap; color:#c8a84b; width:180px;">6:00 AM – 7:30 AM</td>
+                                    <td class="text-nowrap text-gold col-label">6:00 AM – 7:30 AM</td>
                                     <td class="text-white-50">Wake up, get ready, eat breakfast</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">7:30 AM – 8:00 AM</td>
+                                    <td class="text-gold">7:30 AM – 8:00 AM</td>
                                     <td class="text-white-50">Return to event center</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">8:00 AM – 9:30 AM</td>
+                                    <td class="text-gold">8:00 AM – 9:30 AM</td>
                                     <td class="text-white-50">Robot repairs/preparation</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">9:30 AM – 12:00 PM</td>
+                                    <td class="text-gold">9:30 AM – 12:00 PM</td>
                                     <td class="text-white-50">Qualification matches and alliance selection</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">12:00 PM – 1:00 PM</td>
+                                    <td class="text-gold">12:00 PM – 1:00 PM</td>
                                     <td class="text-white-50">Lunch break</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">1:00 PM – 5:00 PM</td>
+                                    <td class="text-gold">1:00 PM – 5:00 PM</td>
                                     <td class="text-white-50">Playoff matches and award ceremony</td>
                                 </tr>
                                 <tr>
-                                    <td style="color:#c8a84b;">5:00 PM – 6:00 PM</td>
+                                    <td class="text-gold">5:00 PM – 6:00 PM</td>
                                     <td class="text-white-50">Parent pickup from Virginia State University Multipurpose Center</td>
                                 </tr>
                             </tbody>
@@ -437,14 +348,14 @@
 
 
                     <div class="mb-5" id="transport-lodging" style="scroll-margin-top: 100px;">
-                        <h2 class="team-title mb-4" style="color:var(--ragnarok-gold,#c8a84b); border-bottom:2px solid var(--ragnarok-gold,#c8a84b); display:inline-block;">Transportation &amp; Lodging</h2>
+                        <h2 class="team-title mb-4 heading-gold">Transportation &amp; Lodging</h2>
 
                         <!-- Locked state -->
-                        <div id="lodging-locked" class="p-4 rounded text-center" style="background:#111; border:1px solid #444;">
-                            <i class="fas fa-lock mb-3" style="font-size:2rem; color:var(--ragnarok-gold,#c8a84b);"></i>
+                        <div id="lodging-locked" class="p-4 rounded text-center panel-darker-alt">
+                            <i class="fas fa-lock mb-3" style="font-size:2rem; color:var(--ragnarok-gold);"></i>
                             <p class="text-white-50 mb-3">Lodging details are for students and families only.<br>Enter the trip password to view.</p>
                             <input id="auth-password" type="password" class="form-control mb-2 mx-auto" placeholder="Enter password" style="background:#1a1a1a; border-color:#555; color:#fff; text-align:center; max-width:280px;" autocomplete="current-password">
-                            <button id="auth-submit" class="btn px-4" style="background:var(--ragnarok-gold,#c8a84b);color:#000;font-weight:700;">
+                            <button id="auth-submit" class="btn px-4" style="background:var(--ragnarok-gold);color:#000;font-weight:700;">
                                 <i class="fas fa-unlock me-2"></i>Unlock
                             </button>
                             <div id="auth-error"></div>
@@ -453,18 +364,18 @@
                         <!-- Unlocked content -->
                         <div id="lodging-content">
                             <div class="text-center mb-4">
-                                <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-685" target="_blank" class="btn btn-norse btn-lg px-5">
+                                <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-685" target="_blank" rel="noopener" class="btn btn-norse btn-lg px-5">
                                     <i class="fas fa-credit-card me-2"></i>Pay for Trip
                                 </a>
                             </div>
                             <!-- Lodging -->
-                            <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Lodging</h5>
+                            <h5 class="text-white mt-4 mb-3 subheading-gold">Lodging</h5>
 
-                            <h6 class="text-uppercase mb-2" style="color:var(--ragnarok-gold,#c8a84b); letter-spacing:1px;">Courtyard by Marriott Richmond Chester</h6>
+                            <h6 class="text-uppercase mb-2 text-gold ls-1">Courtyard by Marriott Richmond Chester</h6>
                             <div class="table-responsive mb-4">
-                                <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                                <table class="table table-dark table-sm table-hover mb-0 fs-90">
                                     <thead>
-                                        <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                        <tr class="text-white-50 text-uppercase label-caps-sm">
                                             <th style="width:120px;">Nights</th>
                                             <th style="width:130px;">Room</th>
                                             <th>Guests</th>
@@ -514,17 +425,17 @@
                                         <tr>
                                             <td class="text-white-50">Thurs–Sun</td>
                                             <td class="text-white">Room 10</td>
-                                            <td class="text-white">Dave Layshock <span class="text-white-50" style="font-size:.8rem;">(mentor)</span></td>
+                                            <td class="text-white">Dave Layshock <span class="text-white-50 fs-80">(mentor)</span></td>
                                         </tr>
                                         <tr>
                                             <td class="text-white-50">Thurs–Sun</td>
                                             <td class="text-white">Room 11</td>
-                                            <td class="text-white">Joshua Ernst <span class="text-white-50" style="font-size:.8rem;">(teacher/chaperone)</span></td>
+                                            <td class="text-white">Joshua Ernst <span class="text-white-50 fs-80">(teacher/chaperone)</span></td>
                                         </tr>
                                         <tr>
                                             <td class="text-white-50">Thurs–Sun</td>
                                             <td class="text-white">Room 12</td>
-                                            <td class="text-white">Lee Clark <span class="text-white-50" style="font-size:.8rem;">(mentor)</span></td>
+                                            <td class="text-white">Lee Clark <span class="text-white-50 fs-80">(mentor)</span></td>
                                         </tr>
                                         <tr>
                                             <td class="text-white-50">Fri–Sun</td>
@@ -534,18 +445,18 @@
                                         <tr>
                                             <td class="text-white-50">Fri–Sun</td>
                                             <td class="text-white">Shawn Room</td>
-                                            <td class="text-white">Shawn Howell <span class="text-white-50" style="font-size:.8rem;">(mentor)</span></td>
+                                            <td class="text-white">Shawn Howell <span class="text-white-50 fs-80">(mentor)</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
 
-                            <h5 class="text-white mt-4 mb-3" style="border-left:3px solid var(--ragnarok-gold,#c8a84b); padding-left:.75rem;">Transportation</h5>
+                            <h5 class="text-white mt-4 mb-3 subheading-gold">Transportation</h5>
                             <div class="table-responsive">
-                                <table class="table table-dark table-sm table-hover mb-0" style="font-size:.9rem;">
+                                <table class="table table-dark table-sm table-hover mb-0 fs-90">
                                     <thead>
-                                        <tr class="text-white-50 text-uppercase" style="font-size:.75rem; letter-spacing:.5px;">
+                                        <tr class="text-white-50 text-uppercase label-caps-sm">
                                             <th>Driver</th>
                                             <th>Passengers</th>
                                             <th>Departure</th>
@@ -612,40 +523,8 @@
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="row align-items-center mb-2">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="d-flex align-items-center">
-                        <div class="me-3">
-                            <img src="assets/school-logo.png" alt="Mt. Hebron High School Logo" class="footer-logo" onerror="this.style.display='none'">
-                        </div>
-                        <div>
-                            <h5 class="text-uppercase fw-bold mb-1">Mt. Hebron High School</h5>
-                            <p class="text-white-50 mb-0">9440 Old Frederick Rd,<br>Ellicott City, MD 21042</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5 class="text-uppercase fw-bold">Contact Us</h5>
-                    <p class="mb-3">
-                        <a href="mailto:mthragnarok@gmail.com" class="text-white fs-5">mthragnarok@gmail.com</a>
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/Team3748Ragnarok" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/frc3748/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/c/frcroboticsteam3748" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-top border-secondary pt-2 text-center">
-                <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
-                <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.57</small>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>renderFooter()</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         const AUTH_URL = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-authorization';
