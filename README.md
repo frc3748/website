@@ -20,6 +20,7 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `2026-pasadena-results.html` | 2026 Pasadena event results |
 | `2026-severn-results.html` | 2026 Severn Run event results |
 | `2026-dcmp-results.html` | 2026 FIRST Chesapeake District Championship results |
+| `2026-battle-of-baltimore-results.html` | 2026 Battle o' Baltimore off-season event results |
 | `2025-game.html` | 2025 FRC season overview |
 | `2025-severn-results.html` | 2025 CHS District Severn event results |
 | `2025-alexandria-results.html` | 2025 CHS District Alexandria VA event results |
@@ -84,6 +85,6 @@ npx serve .
 
 ## Versioning
 
-All pages carry a shared version string in the footer (currently `v1.2.1`). The footer is rendered from `assets/layout.js`, so a version bump changes `SITE_VERSION` in that file.
+All pages carry a shared version string in the footer (currently `v1.2.2`). The footer is rendered from `assets/layout.js`, so a version bump changes `SITE_VERSION` in that file.
 
 The production host caches CSS/JS for 4 hours, so every page links the shared assets with a cache-busting number (`assets/styles.css?v=1.2.0`, `assets/layout.js?v=1.2.0`, `assets/gallery.js?v=1.2.0`). Update that number on all pages whenever the release number changes, and purge the Cloudflare cache after deploying.
