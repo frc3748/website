@@ -1,5 +1,6 @@
 Increment the version only when told, or when creating a dev branch (see Branching)
 When incrementing, update SITE_VERSION in assets/layout.js (it renders the footer on every page) and the "currently vX.Y.Z" line in README.md
+When the release number changes (ignoring -dev), also update the ?v= cache-busting number on the styles.css, layout.js and gallery.js links in every page (e.g. ?v=1.2.0), so browsers and Cloudflare load the new files
 Only commit as described in Branching; never commit directly to master
 Don't add Assisted by Claude in the description
 Always use the latet version number as the commit comment and create a short description of what changed.

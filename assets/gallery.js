@@ -1,5 +1,5 @@
 // Shared gallery loader. Include with:
-// <script src="assets/gallery.js" data-folder="GOOGLE_DRIVE_FOLDER_ID" data-alt="Image alt prefix"></script>
+// <script src="assets/gallery.js?v=X.Y.Z" data-folder="GOOGLE_DRIVE_FOLDER_ID" data-alt="Image alt prefix"></script>
 (function () {
     const GOOGLE_FUNCTION_URL = 'https://us-east4-mth-web-site-processing.cloudfunctions.net/mth-image-provider';
     const script = document.currentScript;

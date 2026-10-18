@@ -1,5 +1,5 @@
 // Shared site navigation and footer.
-// In each page, put <script src="assets/layout.js"></script> in the <head>, then
+// In each page, put <script src="assets/layout.js?v=X.Y.Z"></script> in the <head>, then
 // <script>renderNav()</script> where the nav goes and <script>renderFooter()</script> where the footer goes.
 // The version string below is the site version shown in every page's footer.
 const SITE_VERSION = 'v1.2.0-dev';
