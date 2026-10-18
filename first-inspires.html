@@ -23,144 +23,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIRST Inspires | Team 3748 Ragnarok Robotics</title>
+    <meta name="description" content="Learn about FIRST, the global non-profit behind the FIRST Robotics Competition, and its core values of Gracious Professionalism and Coopertition.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Team 3748 Ragnarok Robotics">
+    <meta property="og:title" content="FIRST Inspires | Team 3748 Ragnarok Robotics">
+    <meta property="og:description" content="Learn about FIRST, the global non-profit behind the FIRST Robotics Competition, and its core values of Gracious Professionalism and Coopertition.">
+    <meta property="og:url" content="https://ragnarokrobotics.org/first-inspires.html">
+    <meta property="og:image" content="https://ragnarokrobotics.org/assets/2026-team.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css?v=1.2.0">
+    <script src="assets/layout.js?v=1.2.0"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/viking-normal" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
-    <style>
-        /* Specific page styling for the progression steps */
-        .progression-card {
-            background-color: #212121;
-            border: 2px solid #444;
-            border-radius: 8px;
-            padding: 30px;
-            height: 100%;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .progression-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--ragnarok-gold);
-            box-shadow: 0 10px 20px rgba(234, 173, 31, 0.2);
-        }
-
-        .level-badge {
-            background-color: var(--primary-red);
-            color: white;
-            font-family: 'Viking-Normal', sans-serif;
-            padding: 5px 15px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .active-level {
-            border: 2px solid var(--ragnarok-gold);
-            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-            box-shadow: 0 0 15px rgba(234, 173, 31, 0.15);
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container d-flex justify-content-center align-items-center">
-            <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
-                <img src="assets/logo.png" alt="Ragnarok Robotics Logo" onerror="this.style.display='none'">
-                <span class="viking-font ms-2">Team 3748</span>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="about.html">Our Legacy</a></li>
-                            <li><a class="dropdown-item" href="team-members.html">Meet the Team</a></li>
-                            <li><a class="dropdown-item active" href="first-inspires.html">FIRST Inspires</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="seasonsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Seasons</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonsDropdown">
-                            <li><h6 class="dropdown-header">2026 RebuilT</h6></li>
-                            <li><a class="dropdown-item" href="2026-game.html">Season Overview</a></li>
-                            <li><a class="dropdown-item" href="2026-district-rankings.html">District Rankings</a></li>
-                            <li><a class="dropdown-item" href="2026-pasadena-results.html">Pasadena Results</a></li>
-                            <li><a class="dropdown-item" href="2026-severn-results.html">Severn Run Results</a></li>
-                            <li><a class="dropdown-item" href="2026-dcmp-results.html">District Championship</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
-                            <li><a class="dropdown-item" href="2025-game.html">Season Overview</a></li>
-                            <li><a class="dropdown-item" href="2025-severn-results.html">Severn Results</a></li>
-                            <li><a class="dropdown-item" href="2025-alexandria-results.html">Alexandria Results</a></li>
-                            <li><a class="dropdown-item" href="2025-dcmp-results.html">District Championship</a></li>
-                            <li><a class="dropdown-item" href="2025-worlds-results.html">FIRST Championship</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><h6 class="dropdown-header">2024 Crescendo</h6></li>
-                            <li><a class="dropdown-item" href="2024-game.html">Season Overview</a></li>
-                            <li><a class="dropdown-item" href="2024-severn-results.html">Severn Results</a></li>
-                            <li><a class="dropdown-item" href="2024-owings-mills-results.html">Owings Mills Results</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="sponsorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sponsorship
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sponsorDropdown">
-                            <li><a class="dropdown-item" href="sponsors.html">Sponsors</a></li>
-                            <li><a class="dropdown-item" href="Sponsorship-opportunities.html">Sponsorship
-                                    Opportunitiess</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="galleriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Galleries</a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="galleriesDropdown">
-                            <li><h6 class="dropdown-header">2026 RebuilT</h6></li>
-                            <li><a class="dropdown-item" href="gallery-2026-season.html">Season Gallery</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-homecoming-parade.html">Homecoming Parade</a></li>
-                            <li><a class="dropdown-item" href="gallery-stjohnslane-stem-night.html">St. John's Lane STEM Night</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-pasadena-competition.html">Pasadena Competition</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-severn-competition.html">Severn Run Competition</a></li>
-                            <li><a class="dropdown-item" href="gallery-2026-dcmp.html">District Championship</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
-                            <li><a class="dropdown-item" href="gallery-2025-season.html">Season Gallery</a></li>
-                            <li><a class="dropdown-item" href="gallery-2025-battle-of-baltimore.html">Battle of Baltimore</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link no-wrap" href="contact-us.html">Contact Us</a></li>
-
-                    <li class="nav-item ms-lg-3">
-                        <a href="https://osp.osmsinc.com/HowardMD/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=DA010-VAR125" target="_blank" class="btn btn-norse w-100">DONATE</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <script>renderNav()</script>
 
     <header class="main-hero">
         <div class="container">
             <h1 class="display-3 mb-2">FIRST Inspires</h1>
-            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">More Than Robots</p>
+            <p class="text-white-50 mb-2 tagline">More Than Robots</p>
         </div>
     </header>
 
@@ -169,7 +58,7 @@
             <div class="col-lg-8 mx-auto text-center">
                 <img src="assets/first-logo.png" alt="FIRST Logo" class="mb-4" style="max-height: 120px; width: auto; display: block; margin: 0 auto;">
 
-                <h2 class="team-title mb-4" style="color: #212121;">What is FIRST?</h2>
+                <h2 class="team-title mb-4 text-charcoal">What is FIRST?</h2>
                 <p class="lead text-muted">
                     FIRST (For Inspiration and Recognition of Science and Technology) is a global non-profit organization founded by Dean Kamen in 1989. Its mission is to prepare young people for the future through a suite of inclusive, team-based robotics programs for ages 4-18.
                 </p>
@@ -181,14 +70,14 @@
 
         <div class="row g-4 align-items-stretch">
             <div class="col-12 text-center mb-3">
-                <h2 class="team-title" style="color: var(--primary-red);">The Levels of FIRST</h2>
+                <h2 class="team-title text-red">The Levels of FIRST</h2>
                 <hr style="width: 100px; margin: 10px auto; border-top: 3px solid var(--ragnarok-gold); opacity: 1;">
             </div>
 
             <div class="col-md-4">
                 <div class="progression-card text-center text-white">
                     <div class="level-badge">Ages 4-16</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST LEGO League</h3>
+                    <h3 class="viking-font text-gold">FIRST LEGO League</h3>
                     <h5 class="text-white-50 mb-4">(FLL)</h5>
                     <p>
                         The entry point into the FIRST progression. FLL utilizes LEGO® bricks and technology to introduce students to STEM concepts through fun, hands-on learning.
@@ -204,7 +93,7 @@
             <div class="col-md-4">
                 <div class="progression-card text-center text-white">
                     <div class="level-badge">Grades 7-12</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Tech Challenge</h3>
+                    <h3 class="viking-font text-gold">FIRST Tech Challenge</h3>
                     <h5 class="text-white-50 mb-4">(FTC)</h5>
                     <p>
                         Teams design, build, and program robots to compete in an alliance format against other teams.
@@ -221,7 +110,7 @@
                 <div class="progression-card active-level text-center text-white position-relative">
                     <div class="position-absolute top-0 start-50 translate-middle badge bg-warning text-dark border border-dark rounded-pill" style="font-family:'Roboto'; font-weight:bold;">WE ARE HERE</div>
                     <div class="level-badge mt-3">Grades 9-12</div>
-                    <h3 class="viking-font" style="color: var(--ragnarok-gold);">FIRST Robotics Competition</h3>
+                    <h3 class="viking-font text-gold">FIRST Robotics Competition</h3>
                     <h5 class="text-white-50 mb-4">(FRC)</h5>
                     <p>
                         Considered the "ultimate Sport for the Mind," FRC combines the excitement of sport with the rigors of science and technology.
@@ -239,53 +128,16 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <div class="info-box shadow-sm">
-                    <h3 class="team-title mb-3" style="color: #212121;">Why Join?</h3>
+                    <h3 class="team-title mb-3 text-charcoal">Why Join?</h3>
                     <p class="mb-4">FIRST participants are significantly more likely to pursue Engineering and CS majors in college. It provides access to millions of dollars in scholarships and creates a network of professionals and mentors.</p>
-                    <a href="https://www.firstinspires.org/" target="_blank" class="btn btn-norse">Visit Official FIRST Website</a>
+                    <a href="https://www.firstinspires.org/" target="_blank" rel="noopener" class="btn btn-norse">Visit Official FIRST Website</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="row align-items-center mb-2">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="d-flex align-items-center">
-                        <div class="me-3">
-                            <img src="assets/school-logo.png" alt="Mt. Hebron High School Logo" class="footer-logo" onerror="this.style.display='none'">
-                        </div>
-                        <div>
-                            <h5 class="text-uppercase fw-bold mb-1">Mt. Hebron High School</h5>
-                            <p class="text-white-50 mb-0">
-                                9440 Old Frederick Rd,<br>
-                                Ellicott City, MD 21042
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 text-md-end">
-                    <h5 class="text-uppercase fw-bold">Contact Us</h5>
-                    <p class="mb-3">
-                        <a href="mailto:mthragnarok@gmail.com" class="text-white fs-5">mthragnarok@gmail.com</a>
-                    </p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/Team3748Ragnarok" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/frc3748/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/c/frcroboticsteam3748" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-top border-secondary pt-2 text-center">
-                <small class="text-white">Copyright © 2026 Team 3748 Ragnarok Robotics</small><br />
-                <small class="text-white">Assisted by Google Gemini and Anthropic Claude</small><br />
-                <small class="text-white">v1.0.57</small>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>renderFooter()</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

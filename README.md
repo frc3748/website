@@ -1,6 +1,6 @@
 # website
 
-Public website for [FRC Team 3748 Ragnarok Robotics](https://www.mthragnarok.com) at Mt. Hebron High School in Ellicott City, MD. Built with Bootstrap 5 and a dark theme with Ragnarok gold accents.
+Public website for [FRC Team 3748 Ragnarok Robotics](https://ragnarokrobotics.org) at Mt. Hebron High School in Ellicott City, MD. Built with Bootstrap 5 and a dark theme with Ragnarok gold accents.
 
 ## Overview
 
@@ -14,6 +14,7 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `about.html` | Team history and mission |
 | `team-members.html` | Roster |
 | `first-inspires.html` | About the FIRST Inspires program |
+| `2027-game.html` | 2027 FRC season overview (BIOCORE; placeholder until Kickoff) |
 | `2026-game.html` | 2026 FRC season overview |
 | `2026-district-rankings.html` | 2026 FCH district rankings (live, with loading spinner) |
 | `2026-pasadena-results.html` | 2026 Pasadena event results |
@@ -35,13 +36,22 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `gallery-stjohnslane-stem-night.html` | St. John's Lane STEM night gallery |
 | `gallery-2025-season.html` | 2025 season gallery |
 | `gallery-2025-battle-of-baltimore.html` | 2025 Battle of Baltimore gallery |
-| `livestream.html` | Competition livestream + live rankings |
 | `2026-dcmp-trip.html` | FCH District Championship trip logistics (password-protected) |
 | `sponsors.html` | Current sponsors |
 | `Sponsorship-opportunities.html` | Sponsorship prospectus |
 | `order-tshirt.html` | T-shirt order form |
 | `contact-us.html` | Contact form |
 | `template.html` | Page template for new pages |
+| `404.html` | Not-found page |
+
+## Shared Files
+
+| File | Purpose |
+|---|---|
+| `assets/layout.js` | Site nav and footer, injected on every page via `renderNav()` / `renderFooter()`; also holds the site version |
+| `assets/gallery.js` | Gallery loader; each gallery page sets `data-folder` (Google Drive folder ID) and `data-alt` on its script tag |
+| `assets/styles.css` | All site styles; section 9 has utility classes (`text-gold`, `panel-dark`, `label-caps`, etc.) to use instead of inline `style=""` attributes |
+| `sitemap.xml` / `robots.txt` | Search engine sitemap and crawl rules; add new public pages to `sitemap.xml` |
 
 ## Tech Stack
 
@@ -74,4 +84,6 @@ npx serve .
 
 ## Versioning
 
-All pages carry a shared version string in the footer (currently `v1.0.57`). Version bumps are applied site-wide across all HTML files at once.
+All pages carry a shared version string in the footer (currently `v1.2.0`). The footer is rendered from `assets/layout.js`, so a version bump changes `SITE_VERSION` in that file.
+
+The production host caches CSS/JS for 4 hours, so every page links the shared assets with a cache-busting number (`assets/styles.css?v=1.2.0`, `assets/layout.js?v=1.2.0`, `assets/gallery.js?v=1.2.0`). Update that number on all pages whenever the release number changes, and purge the Cloudflare cache after deploying.
