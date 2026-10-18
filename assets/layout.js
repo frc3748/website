@@ -43,6 +43,7 @@ const SITE_NAV = `
                                 <li><a class="dropdown-item" href="2026-pasadena-results.html">Pasadena Results</a></li>
                                 <li><a class="dropdown-item" href="2026-severn-results.html">Severn Run Results</a></li>
                                 <li><a class="dropdown-item" href="2026-dcmp-results.html">District Championship</a></li>
+                                <li><a class="dropdown-item" href="2026-battle-of-baltimore-results.html">Battle o' Baltimore Results</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><h6 class="dropdown-header">2025 Reefscape</h6></li>
                                 <li><a class="dropdown-item" href="2025-game.html">Season Overview</a></li>

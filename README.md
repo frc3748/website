@@ -20,6 +20,7 @@ A static multi-page site covering team info, FRC game recaps, competition result
 | `2026-pasadena-results.html` | 2026 Pasadena event results |
 | `2026-severn-results.html` | 2026 Severn Run event results |
 | `2026-dcmp-results.html` | 2026 FIRST Chesapeake District Championship results |
+| `2026-battle-of-baltimore-results.html` | 2026 Battle o' Baltimore off-season event results |
 | `2025-game.html` | 2025 FRC season overview |
 | `2025-severn-results.html` | 2025 CHS District Severn event results |
 | `2025-alexandria-results.html` | 2025 CHS District Alexandria VA event results |
